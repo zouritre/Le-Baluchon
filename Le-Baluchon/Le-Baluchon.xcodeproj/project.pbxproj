@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E935443C283BA879007C25BA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935443B283BA879007C25BA /* CurrencyService.swift */; };
 		E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */; };
 		E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */; };
 		E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E6283AAFFE00DD6374 /* ExchangeRateViewController.swift */; };
 		E99E49EA283AAFFE00DD6374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99E49E8283AAFFE00DD6374 /* Main.storyboard */; };
 		E99E49EC283AAFFF00DD6374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99E49EB283AAFFF00DD6374 /* Assets.xcassets */; };
 		E99E49EF283AAFFF00DD6374 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99E49ED283AAFFF00DD6374 /* LaunchScreen.storyboard */; };
-		E99E49FA283AAFFF00DD6374 /* Le_BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49F9283AAFFF00DD6374 /* Le_BaluchonTests.swift */; };
+		E99E49FA283AAFFF00DD6374 /* GetCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */; };
 		E99E4A04283AAFFF00DD6374 /* Le_BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */; };
 		E99E4A06283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */; };
 		E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */; };
 		E99E4A18283AC5CF00DD6374 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A17283AC5CF00DD6374 /* TranslationViewController.swift */; };
+		E9D61DF0283C14790058C9D2 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = E9D61DEF283C14790058C9D2 /* ObjectMapper */; };
+		E9D61DF2283C37E00058C9D2 /* CurrencySymbolJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */; };
+		E9E811A0283BB41E006E19F0 /* FixerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8119F283BB41E006E19F0 /* FixerApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E935443B283BA879007C25BA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = "Le-Baluchon/Model/Exchange Rate/CurrencyService.swift"; sourceTree = SOURCE_ROOT; };
 		E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le-Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,12 +52,14 @@
 		E99E49EE283AAFFF00DD6374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E99E49F0283AAFFF00DD6374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E99E49F9283AAFFF00DD6374 /* Le_BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonTests.swift; sourceTree = "<group>"; };
+		E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrencyTest.swift; sourceTree = "<group>"; };
 		E99E49FF283AAFFF00DD6374 /* Le-BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITests.swift; sourceTree = "<group>"; };
 		E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = "Le-Baluchon/Controller/WeatherViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E99E4A17283AC5CF00DD6374 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslationViewController.swift; path = "Le-Baluchon/Controller/TranslationViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolJson.swift; sourceTree = "<group>"; };
+		E9E8119F283BB41E006E19F0 /* FixerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D61DF0283C14790058C9D2 /* ObjectMapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E941C3F2283CF86800638B3F /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
 		E99E49D6283AAFFE00DD6374 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +134,7 @@
 		E99E49F8283AAFFF00DD6374 /* Le-BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				E99E49F9283AAFFF00DD6374 /* Le_BaluchonTests.swift */,
+				E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */,
 			);
 			path = "Le-BaluchonTests";
 			sourceTree = "<group>";
@@ -135,6 +151,9 @@
 		E99E4A12283AB02000DD6374 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9B07AD0283DA76A0042089E /* Exchange Rate */,
+				E9B07ACF283DA7160042089E /* API */,
+				E941C3F2283CF86800638B3F /* JSONs */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +176,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E9B07ACF283DA7160042089E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E9E8119F283BB41E006E19F0 /* FixerApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E9B07AD0283DA76A0042089E /* Exchange Rate */ = {
+			isa = PBXGroup;
+			children = (
+				E935443B283BA879007C25BA /* CurrencyService.swift */,
+			);
+			path = "Exchange Rate";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +208,9 @@
 			dependencies = (
 			);
 			name = "Le-Baluchon";
+			packageProductDependencies = (
+				E9D61DEF283C14790058C9D2 /* ObjectMapper */,
+			);
 			productName = "Le-Baluchon";
 			productReference = E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +283,9 @@
 				Base,
 			);
 			mainGroup = E99E49D6283AAFFE00DD6374;
+			packageReferences = (
+				E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+			);
 			productRefGroup = E99E49E0283AAFFE00DD6374 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,11 +329,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D61DF2283C37E00058C9D2 /* CurrencySymbolJson.swift in Sources */,
 				E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */,
+				E9E811A0283BB41E006E19F0 /* FixerApi.swift in Sources */,
 				E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */,
 				E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */,
 				E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */,
 				E99E4A18283AC5CF00DD6374 /* TranslationViewController.swift in Sources */,
+				E935443C283BA879007C25BA /* CurrencyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99E49FA283AAFFF00DD6374 /* Le_BaluchonTests.swift in Sources */,
+				E99E49FA283AAFFF00DD6374 /* GetCurrencyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +680,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper#easy-mapping-of-nested-objects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9D61DEF283C14790058C9D2 /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E99E49D7283AAFFE00DD6374 /* Project object */;
 }

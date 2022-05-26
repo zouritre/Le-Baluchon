@@ -11,7 +11,6 @@
         <!--Traduction-->
         <scene sceneID="xJA-Uk-0cZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="041-YL-gVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="euW-aK-U9D" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Traduction" image="trad" id="WAu-1O-WYO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rcP-gm-9BA">
@@ -26,6 +25,7 @@
                         <segue destination="l5w-Bq-ZBh" kind="relationship" relationship="rootViewController" id="vnr-om-XkY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="041-YL-gVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-188" y="-552"/>
         </scene>
@@ -37,49 +37,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-61-dot" userLabel="CurrencyToConvert">
+                            <pickerView tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-61-dot" userLabel="CurrencyToConvert">
                                 <rect key="frame" x="0.0" y="88" width="414" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3oi-ka-y54"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9n6-O9-8to"/>
+                                </connections>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant à convertir" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-8L-ZND" userLabel="AmountToConvert">
-                                <rect key="frame" x="20.5" y="314" width="373" height="34"/>
+                                <rect key="frame" x="20.5" y="304" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-Gz-bWQ" userLabel="DoubleArrow">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-Gz-bWQ" userLabel="DoubleArrow">
                                 <rect key="frame" x="182" y="423" width="50" height="50"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="AmountConverted">
-                                <rect key="frame" x="20.5" y="553" width="373" height="34"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="AmountConverted">
+                                <rect key="frame" x="20.5" y="563" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-wK-yFH" userLabel="ConvertedCurrency">
+                            <pickerView tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-wK-yFH" userLabel="ConvertedCurrency">
                                 <rect key="frame" x="0.0" y="597" width="414" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="XvZ-fR-WzN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YpN-r6-bqS"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="2H7-8L-ZND" firstAttribute="top" secondItem="xJM-61-dot" secondAttribute="bottom" constant="10" id="2e4-6T-2jv"/>
-                            <constraint firstItem="7dg-wK-yFH" firstAttribute="top" secondItem="doI-kb-kXK" secondAttribute="bottom" constant="10" id="92G-Ja-iov"/>
                             <constraint firstItem="GBF-Gz-bWQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LaA-0S-qKv"/>
                             <constraint firstItem="7dg-wK-yFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M42-am-3gg"/>
                             <constraint firstItem="GBF-Gz-bWQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MNn-XO-UMI"/>
                             <constraint firstItem="doI-kb-kXK" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="MiH-gs-4Su"/>
+                            <constraint firstItem="7dg-wK-yFH" firstAttribute="top" secondItem="doI-kb-kXK" secondAttribute="bottom" id="QG4-G7-78z"/>
                             <constraint firstItem="2H7-8L-ZND" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="Uhx-a0-R46"/>
+                            <constraint firstItem="2H7-8L-ZND" firstAttribute="top" secondItem="xJM-61-dot" secondAttribute="bottom" id="WXD-hf-0Vu"/>
                             <constraint firstItem="xJM-61-dot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wou-3l-nmo"/>
                             <constraint firstItem="2H7-8L-ZND" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zvc-aA-4qp"/>
                             <constraint firstItem="xJM-61-dot" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="azQ-Ia-QS6"/>
+                            <constraint firstItem="doI-kb-kXK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GBF-Gz-bWQ" secondAttribute="bottom" constant="10" id="dDa-OT-0pM"/>
+                            <constraint firstItem="GBF-Gz-bWQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2H7-8L-ZND" secondAttribute="bottom" constant="10" id="eU9-gu-Xxb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7dg-wK-yFH" secondAttribute="bottom" id="juC-zC-Qfn"/>
                             <constraint firstItem="doI-kb-kXK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vt2-8b-iwa"/>
                             <constraint firstItem="xJM-61-dot" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yY9-zT-QiG"/>
                             <constraint firstItem="7dg-wK-yFH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yr7-tU-Cxb"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1iI-32-Oda" appends="YES" id="CsK-YE-N0Q"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="onr-41-FMa"/>
                     <navigationItem key="navigationItem" title="Taux de change" id="0Wk-um-WBX"/>
+                    <connections>
+                        <outlet property="amountToConvertTextField" destination="2H7-8L-ZND" id="aPf-w4-6SO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1iI-32-Oda">
+                    <connections>
+                        <action selector="dissmissKeyboard:" destination="BYZ-38-t0r" id="PFB-UU-9WP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="727.536231884058" y="172.76785714285714"/>
         </scene>
@@ -107,7 +129,6 @@
         <!--Taux de change-->
         <scene sceneID="BFG-yD-qbp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eJr-F1-oUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="Qps-SN-Nbf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Taux de change" image="devise" id="TF5-aD-jAb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WTA-KN-9tC">
@@ -122,13 +143,13 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="stU-M4-0FH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJr-F1-oUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-188" y="173"/>
         </scene>
         <!--Météo-->
         <scene sceneID="OhE-xQ-VN2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K29-QH-lBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="YfV-Oq-VhR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Météo" image="meteo" id="dKk-ER-VpL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jlg-hC-6ix">
@@ -143,6 +164,7 @@
                         <segue destination="gW0-mY-LhB" kind="relationship" relationship="rootViewController" id="ZWb-4V-bgw"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K29-QH-lBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-188" y="923"/>
         </scene>
@@ -159,6 +181,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Français"/>
                                 <connections>
+                                    <action selector="sendreq:" destination="l5w-Bq-ZBh" eventType="touchUpInside" id="5Pg-FS-bwX"/>
                                     <segue destination="QUO-Fw-bZp" kind="presentation" id="SXp-2j-OPp"/>
                                 </connections>
                             </button>
