@@ -13,6 +13,8 @@ struct FixerApi {
     
     private static let currencySymbol = "/symbols"
     
+    static let apikey = "uynnW4g7yQfGYHjWOPkoWHL2buhyQyGj"
+    
     static var currencySymbolUrl: URL {
         return URL(string: "\(root)\(currencySymbol)")!
     }

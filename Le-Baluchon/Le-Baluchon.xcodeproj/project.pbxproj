@@ -7,19 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93120B32840FDF700760277 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93120B22840FDF700760277 /* URLSessionFake.swift */; };
+		E93120B728412AAC00760277 /* URLSessionDataTaskFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */; };
 		E935443C283BA879007C25BA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935443B283BA879007C25BA /* CurrencyService.swift */; };
+		E9542A97284035A200E86E9F /* CurrencySymbol.json in Resources */ = {isa = PBXBuildFile; fileRef = E9542A96284035A200E86E9F /* CurrencySymbol.json */; };
+		E9542A992840367400E86E9F /* FakeCurrencySymbolResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9542A982840367400E86E9F /* FakeCurrencySymbolResponse.swift */; };
 		E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */; };
 		E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */; };
 		E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E6283AAFFE00DD6374 /* ExchangeRateViewController.swift */; };
 		E99E49EA283AAFFE00DD6374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99E49E8283AAFFE00DD6374 /* Main.storyboard */; };
 		E99E49EC283AAFFF00DD6374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99E49EB283AAFFF00DD6374 /* Assets.xcassets */; };
 		E99E49EF283AAFFF00DD6374 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99E49ED283AAFFF00DD6374 /* LaunchScreen.storyboard */; };
-		E99E49FA283AAFFF00DD6374 /* GetCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */; };
-		E99E4A04283AAFFF00DD6374 /* Le_BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */; };
-		E99E4A06283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */; };
+		E99E49FA283AAFFF00DD6374 /* CurrencyServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49F9283AAFFF00DD6374 /* CurrencyServiceTest.swift */; };
 		E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */; };
 		E99E4A18283AC5CF00DD6374 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A17283AC5CF00DD6374 /* TranslationViewController.swift */; };
-		E9D61DF0283C14790058C9D2 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = E9D61DEF283C14790058C9D2 /* ObjectMapper */; };
 		E9D61DF2283C37E00058C9D2 /* CurrencySymbolJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */; };
 		E9E811A0283BB41E006E19F0 /* FixerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8119F283BB41E006E19F0 /* FixerApi.swift */; };
 /* End PBXBuildFile section */
@@ -32,17 +33,14 @@
 			remoteGlobalIDString = E99E49DE283AAFFE00DD6374;
 			remoteInfo = "Le-Baluchon";
 		};
-		E99E4A00283AAFFF00DD6374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E99E49D7283AAFFE00DD6374 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E99E49DE283AAFFE00DD6374;
-			remoteInfo = "Le-Baluchon";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E93120B22840FDF700760277 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskFake.swift; sourceTree = "<group>"; };
 		E935443B283BA879007C25BA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = "Le-Baluchon/Model/Exchange Rate/CurrencyService.swift"; sourceTree = SOURCE_ROOT; };
+		E9542A96284035A200E86E9F /* CurrencySymbol.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CurrencySymbol.json; sourceTree = "<group>"; };
+		E9542A982840367400E86E9F /* FakeCurrencySymbolResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCurrencySymbolResponse.swift; sourceTree = "<group>"; };
 		E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le-Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +50,7 @@
 		E99E49EE283AAFFF00DD6374 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E99E49F0283AAFFF00DD6374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrencyTest.swift; sourceTree = "<group>"; };
-		E99E49FF283AAFFF00DD6374 /* Le-BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99E49F9283AAFFF00DD6374 /* CurrencyServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTest.swift; sourceTree = "<group>"; };
 		E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITests.swift; sourceTree = "<group>"; };
 		E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = "Le-Baluchon/Controller/WeatherViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -67,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9D61DF0283C14790058C9D2 /* ObjectMapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,16 +74,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E99E49FC283AAFFF00DD6374 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93120B4284129D200760277 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E9542A96284035A200E86E9F /* CurrencySymbol.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		E93120B528412A1200760277 /* Fake Network Conf */ = {
+			isa = PBXGroup;
+			children = (
+				E93120B22840FDF700760277 /* URLSessionFake.swift */,
+				E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */,
+				E9542A982840367400E86E9F /* FakeCurrencySymbolResponse.swift */,
+			);
+			path = "Fake Network Conf";
+			sourceTree = "<group>";
+		};
 		E941C3F2283CF86800638B3F /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +118,6 @@
 			children = (
 				E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */,
 				E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */,
-				E99E49FF283AAFFF00DD6374 /* Le-BaluchonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,7 +140,9 @@
 		E99E49F8283AAFFF00DD6374 /* Le-BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				E99E49F9283AAFFF00DD6374 /* GetCurrencyTest.swift */,
+				E93120B528412A1200760277 /* Fake Network Conf */,
+				E93120B4284129D200760277 /* JSON */,
+				E99E49F9283AAFFF00DD6374 /* CurrencyServiceTest.swift */,
 			);
 			path = "Le-BaluchonTests";
 			sourceTree = "<group>";
@@ -209,7 +217,6 @@
 			);
 			name = "Le-Baluchon";
 			packageProductDependencies = (
-				E9D61DEF283C14790058C9D2 /* ObjectMapper */,
 			);
 			productName = "Le-Baluchon";
 			productReference = E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */;
@@ -233,24 +240,6 @@
 			productReference = E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E99E49FE283AAFFF00DD6374 /* Le-BaluchonUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E99E4A0F283AAFFF00DD6374 /* Build configuration list for PBXNativeTarget "Le-BaluchonUITests" */;
-			buildPhases = (
-				E99E49FB283AAFFF00DD6374 /* Sources */,
-				E99E49FC283AAFFF00DD6374 /* Frameworks */,
-				E99E49FD283AAFFF00DD6374 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E99E4A01283AAFFF00DD6374 /* PBXTargetDependency */,
-			);
-			name = "Le-BaluchonUITests";
-			productName = "Le-BaluchonUITests";
-			productReference = E99E49FF283AAFFF00DD6374 /* Le-BaluchonUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,10 +257,6 @@
 						CreatedOnToolsVersion = 13.4;
 						TestTargetID = E99E49DE283AAFFE00DD6374;
 					};
-					E99E49FE283AAFFF00DD6374 = {
-						CreatedOnToolsVersion = 13.4;
-						TestTargetID = E99E49DE283AAFFE00DD6374;
-					};
 				};
 			};
 			buildConfigurationList = E99E49DA283AAFFE00DD6374 /* Build configuration list for PBXProject "Le-Baluchon" */;
@@ -284,7 +269,6 @@
 			);
 			mainGroup = E99E49D6283AAFFE00DD6374;
 			packageReferences = (
-				E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 			);
 			productRefGroup = E99E49E0283AAFFE00DD6374 /* Products */;
 			projectDirPath = "";
@@ -292,7 +276,6 @@
 			targets = (
 				E99E49DE283AAFFE00DD6374 /* Le-Baluchon */,
 				E99E49F4283AAFFF00DD6374 /* Le-BaluchonTests */,
-				E99E49FE283AAFFF00DD6374 /* Le-BaluchonUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,13 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E99E49FD283AAFFF00DD6374 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				E9542A97284035A200E86E9F /* CurrencySymbol.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,16 +321,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99E49FA283AAFFF00DD6374 /* GetCurrencyTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E99E49FB283AAFFF00DD6374 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E99E4A04283AAFFF00DD6374 /* Le_BaluchonUITests.swift in Sources */,
-				E99E4A06283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift in Sources */,
+				E9542A992840367400E86E9F /* FakeCurrencySymbolResponse.swift in Sources */,
+				E93120B32840FDF700760277 /* URLSessionFake.swift in Sources */,
+				E93120B728412AAC00760277 /* URLSessionDataTaskFake.swift in Sources */,
+				E99E49FA283AAFFF00DD6374 /* CurrencyServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,11 +335,6 @@
 			isa = PBXTargetDependency;
 			target = E99E49DE283AAFFE00DD6374 /* Le-Baluchon */;
 			targetProxy = E99E49F6283AAFFF00DD6374 /* PBXContainerItemProxy */;
-		};
-		E99E4A01283AAFFF00DD6374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E99E49DE283AAFFE00DD6374 /* Le-Baluchon */;
-			targetProxy = E99E4A00283AAFFF00DD6374 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -604,42 +570,6 @@
 			};
 			name = Release;
 		};
-		E99E4A10283AAFFF00DD6374 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32VPA6HJ38;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bertranddalleau.Le-BaluchonUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Le-Baluchon";
-			};
-			name = Debug;
-		};
-		E99E4A11283AAFFF00DD6374 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32VPA6HJ38;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bertranddalleau.Le-BaluchonUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Le-Baluchon";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -670,35 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E99E4A0F283AAFFF00DD6374 /* Build configuration list for PBXNativeTarget "Le-BaluchonUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E99E4A10283AAFFF00DD6374 /* Debug */,
-				E99E4A11283AAFFF00DD6374 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper#easy-mapping-of-nested-objects";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E9D61DEF283C14790058C9D2 /* ObjectMapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E9D61DEE283C14790058C9D2 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
-			productName = ObjectMapper;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E99E49D7283AAFFE00DD6374 /* Project object */;
 }

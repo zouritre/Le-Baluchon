@@ -9,27 +9,42 @@ import Foundation
 
 class CurrencyService {
 
+    //Create a shared instance of the class to prevent any duplicates
+    static var shared = CurrencyService()
+    
+    private var task: URLSessionDataTask?
+    
+    var session = URLSession(configuration: .default)
+    
+    private init() {}
     
     /// Retrieve currencies symbol and name from API
     /// - Parameter completionHandler: Dictionnary containing each currency symbol as keys and names as values
-    static func getCurrencies(completionHandler: @escaping (_ currencies: [String:String]?, _ error: String?) -> Void) {
+    func getCurrencies(completionHandler: @escaping (_ currencies: [String:String]?, _ error: String?) -> Void) {
         
         //Create a GET request to Fixer API by providing an API key
         var request = URLRequest(url: FixerApi.currencySymbolUrl)
         
         request.httpMethod = "GET"
-        request.setValue("uynnW4g7yQfGYHjWOPkoWHL2buhyQyGj", forHTTPHeaderField: "apikey")
+        request.setValue(FixerApi.apikey, forHTTPHeaderField: "apikey")
+        
+        //Cancel current task if any
+        task?.cancel()
         
         //Send the request to the API, manage potential errors and decode the JSON response.
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task = session.dataTask(with: request) { (data, response, error) in
             
-            guard let data = data, error == nil else {
+            if let error = error {
                 
-                if let error = error {
-                    
-                    completionHandler(nil, error.localizedDescription)
-                    
-                }
+                completionHandler(nil, "Error: \(error.localizedDescription)")
+                
+                return
+
+            }
+            
+            guard let data = data else {
+                
+                completionHandler(nil, "No data received")
                 
                 return
                 
@@ -45,7 +60,7 @@ class CurrencyService {
             
             guard let responseJSON = try? JSONDecoder().decode(CurrencySymbolJson.self, from: data) else {
                 
-                completionHandler(nil, "Response decoding failed")
+                completionHandler(nil, "Data decoding failed")
 
                 return
                 
@@ -53,6 +68,9 @@ class CurrencyService {
             
             completionHandler(responseJSON.symbols, nil)
             
-        }.resume()
+        }
+        
+        task?.resume()
+        
     }
 }

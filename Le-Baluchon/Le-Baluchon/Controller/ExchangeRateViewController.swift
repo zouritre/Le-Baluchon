@@ -63,8 +63,12 @@ class ExchangeRateViewController: UIViewController {
         super.viewDidLoad()
         
         //Get currencies symbol and name from API and display their names in each pickerView. Or display an alert if errors occured
-        CurrencyService.getCurrencies { currencies, error  in
-
+        CurrencyService.shared.getCurrencies { [weak self] currencies, error  in
+            
+            guard let self = self else {
+                return
+            }
+            
             if error == nil {
 
                 guard let currencies = currencies else {
@@ -73,12 +77,11 @@ class ExchangeRateViewController: UIViewController {
                 }
 
                 for (key, value) in currencies {
-
                     self.currencySymbols.append(key)
                     self.currencySymbolsDescription.append(value)
                 }
 
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
 
                     self.pickerView1?.reloadAllComponents()
                     self.pickerView2?.reloadAllComponents()
@@ -88,8 +91,7 @@ class ExchangeRateViewController: UIViewController {
             else {
 
                 guard let error = error else {
-                    print("error ≤is nil")
-
+                    print("error is nil")
                     return
                 }
 
