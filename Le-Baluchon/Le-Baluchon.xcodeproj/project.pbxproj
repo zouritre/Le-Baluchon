@@ -51,8 +51,6 @@
 		E99E49F0283AAFFF00DD6374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E49F9283AAFFF00DD6374 /* CurrencyServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTest.swift; sourceTree = "<group>"; };
-		E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITests.swift; sourceTree = "<group>"; };
-		E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = "Le-Baluchon/Controller/WeatherViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E99E4A17283AC5CF00DD6374 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslationViewController.swift; path = "Le-Baluchon/Controller/TranslationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolJson.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			children = (
 				E99E49E1283AAFFE00DD6374 /* Le-Baluchon */,
 				E99E49F8283AAFFF00DD6374 /* Le-BaluchonTests */,
-				E99E4A02283AAFFF00DD6374 /* Le-BaluchonUITests */,
 				E99E49E0283AAFFE00DD6374 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,15 +142,6 @@
 				E99E49F9283AAFFF00DD6374 /* CurrencyServiceTest.swift */,
 			);
 			path = "Le-BaluchonTests";
-			sourceTree = "<group>";
-		};
-		E99E4A02283AAFFF00DD6374 /* Le-BaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E99E4A03283AAFFF00DD6374 /* Le_BaluchonUITests.swift */,
-				E99E4A05283AAFFF00DD6374 /* Le_BaluchonUITestsLaunchTests.swift */,
-			);
-			path = "Le-BaluchonUITests";
 			sourceTree = "<group>";
 		};
 		E99E4A12283AB02000DD6374 /* Model */ = {
