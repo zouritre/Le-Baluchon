@@ -14,17 +14,17 @@ class CurrencyService {
     
     private var task: URLSessionDataTask?
     
+    /// URLSession to be used, in testings it will be a "fake" session
     var session = URLSession(configuration: .default)
     
     private init() {}
     
     /// Retrieve currencies symbol and name from API
     /// - Parameter completionHandler: Dictionnary containing each currency symbol as keys and names as values
-    func getCurrencies(completionHandler: @escaping (_ currencies: [String:String]?, _ error: String?) -> Void) {
+    func makeRequest<T:Decodable>(request: URLRequest, dataStructure: T , completionHandler: @escaping (_ data: Any?, _ error: String?) -> Void) {
         
-        //Create a GET request to Fixer API by providing an API key
-        var request = URLRequest(url: FixerApi.currencySymbolUrl)
-        
+        //Configure the request
+        var request = request
         request.httpMethod = "GET"
         request.setValue(FixerApi.apikey, forHTTPHeaderField: "apikey")
         
@@ -58,7 +58,8 @@ class CurrencyService {
                 
             }
             
-            guard let responseJSON = try? JSONDecoder().decode(CurrencySymbolJson.self, from: data) else {
+            
+            guard let responseJSON = try? JSONDecoder().decode(type(of: dataStructure), from: data) else {
                 
                 completionHandler(nil, "Data decoding failed")
 
@@ -66,11 +67,29 @@ class CurrencyService {
                 
             }
             
-            completionHandler(responseJSON.symbols, nil)
+            completionHandler(responseJSON, nil)
             
         }
         
         task?.resume()
         
+    }
+    
+    func getCurrencies(completionHandler: @escaping (_ currencies: [String:String]?, _ error: String?) -> Void) {
+        
+        //Create a request to Fixer API
+        let request = URLRequest(url: FixerApi.currencySymbolUrl)
+        
+        makeRequest(request: request, dataStructure: CurrencySymbolJson()) { data, error in
+            
+            guard let data = data as? CurrencySymbolJson else {
+                
+                completionHandler(nil, "Unexpected data received")
+                
+                return
+            }
+            
+            completionHandler(data.symbols, error)
+        }
     }
 }
