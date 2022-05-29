@@ -9,14 +9,11 @@ import Foundation
 
 struct FixerApi {
     
-    private static let root = "https://api.apilayer.com/fixer"
-    
-    private static let currencySymbol = "/symbols"
+    static let root = "https://api.apilayer.com/fixer"
     
     static let apikey = "uynnW4g7yQfGYHjWOPkoWHL2buhyQyGj"
     
-    static var currencySymbolUrl: URL {
-        return URL(string: "\(root)\(currencySymbol)")!
-    }
-
+    static let currencySymbol = "/symbols"
+    
+    static let convertCurrency = "/convert"
 }

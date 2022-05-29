@@ -12,6 +12,7 @@ class CurrencyService {
     //Create a shared instance of the class to prevent any duplicates
     static var shared = CurrencyService()
     
+    //Allow task cancel and resume
     private var task: URLSessionDataTask?
     
     /// URLSession to be used, in testings it will be a "fake" session
@@ -21,7 +22,7 @@ class CurrencyService {
     
     /// Retrieve currencies symbol and name from API
     /// - Parameter completionHandler: Dictionnary containing each currency symbol as keys and names as values
-    func makeRequest<T:Decodable>(request: URLRequest, dataStructure: T , completionHandler: @escaping (_ data: Any?, _ error: String?) -> Void) {
+    func makeRequest<anyDecodable:Decodable>(request: URLRequest, dataStructure: anyDecodable , completionHandler: @escaping (_ data: Any?, _ error: String?) -> Void) {
         
         //Configure the request
         var request = request
@@ -78,13 +79,18 @@ class CurrencyService {
     func getCurrencies(completionHandler: @escaping (_ currencies: [String:String]?, _ error: String?) -> Void) {
         
         //Create a request to Fixer API
-        let request = URLRequest(url: FixerApi.currencySymbolUrl)
+        
+        guard let reqUrl = URL(string: "\(FixerApi.root)\(FixerApi.currencySymbol)") else {
+            return
+        }
+        
+        let request = URLRequest(url: reqUrl)
         
         makeRequest(request: request, dataStructure: CurrencySymbolJson()) { data, error in
             
-            guard let data = data as? CurrencySymbolJson else {
+            guard let data = data as? CurrencySymbolJson, error == nil else {
                 
-                completionHandler(nil, "Unexpected data received")
+                completionHandler(nil, error!)
                 
                 return
             }
@@ -92,4 +98,28 @@ class CurrencyService {
             completionHandler(data.symbols, error)
         }
     }
+    
+    func convertCurrencies(from: String, to: String, amount: String, completionHandler: @escaping (_ result: Float?, _ error: String?) -> Void) {
+        
+        //Create a request to Fixer API
+        guard  let reqUrl = URL(string: "\(FixerApi.root)\(FixerApi.convertCurrency)?to=\(to)&from=\(from)&amount=\(amount)") else {
+            
+            return
+        }
+        
+        let request = URLRequest(url: reqUrl)
+        
+        makeRequest(request: request, dataStructure: CurrencyConversionJSON()) { data, error in
+            
+            guard let data = data as? CurrencyConversionJSON, error == nil else {
+                
+                completionHandler(nil, error!)
+                
+                return
+            }
+            
+            completionHandler(data.result, error)
+        }
+    }
+    
 }

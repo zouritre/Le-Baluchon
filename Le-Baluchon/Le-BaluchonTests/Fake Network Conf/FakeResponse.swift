@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FakeCurrencySymbolResponse {
+class FakeResponse {
    
     static let responseOK = HTTPURLResponse(
        url: URL(string: "https://openclassrooms.com")!,
@@ -21,11 +21,18 @@ class FakeCurrencySymbolResponse {
     
     static let error = CurrencyError()
     
+    private static let bundle = Bundle(for: FakeResponse.self)
+    
     static var correctCurrencySymbolData: Data? {
-        
-        let bundle = Bundle(for: FakeCurrencySymbolResponse.self)
-        
+    
         let url = bundle.url(forResource: "CurrencySymbol", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
+    
+    static var correctCurrencyConversionData: Data? {
+    
+        let url = bundle.url(forResource: "CurrencyConversion", withExtension: "json")!
         
         return try! Data(contentsOf: url)
     }

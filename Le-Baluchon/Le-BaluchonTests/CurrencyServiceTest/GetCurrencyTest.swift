@@ -8,7 +8,7 @@
 import XCTest
 @testable import Le_Baluchon
 
-class CurrencyServiceTest: XCTestCase {
+class GetCurrencyTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,7 +21,8 @@ class CurrencyServiceTest: XCTestCase {
     //If error  received
     func testGetCurrencyShouldPostFailedCallbackIfError() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: nil, response: nil, error: FakeCurrencySymbolResponse.error)
+        
+        CurrencyService.shared.session = URLSessionFake(data: nil, response: nil, error: FakeResponse.error)
 
     // When
         CurrencyService.shared.getCurrencies{ currency, error in
@@ -49,7 +50,7 @@ class CurrencyServiceTest: XCTestCase {
     //If connexion failed
     func testGetCurrencyShouldPostFailedCallbackIfIncorrectResponse() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeCurrencySymbolResponse.correctCurrencySymbolData, response: FakeCurrencySymbolResponse.responseKO, error: nil)
+        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.correctCurrencySymbolData, response: FakeResponse.responseKO, error: nil)
 
     // When
         CurrencyService.shared.getCurrencies{ currency, error in
@@ -63,7 +64,7 @@ class CurrencyServiceTest: XCTestCase {
     //If data decoding failed
     func testGetCurrencyShouldPostFailedCallbackIfIncorrectData() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeCurrencySymbolResponse.incorrectCurrencyData, response: FakeCurrencySymbolResponse.responseOK, error: nil)
+        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.incorrectCurrencyData, response: FakeResponse.responseOK, error: nil)
 
     // When
         CurrencyService.shared.getCurrencies{ currency, error in
@@ -77,7 +78,7 @@ class CurrencyServiceTest: XCTestCase {
     //If correct data and no error
     func testGetCurrencyShouldPostFailedCallbackIfCorrectDataAndNoError() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeCurrencySymbolResponse.correctCurrencySymbolData, response: FakeCurrencySymbolResponse.responseOK, error: nil)
+        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.correctCurrencySymbolData, response: FakeResponse.responseOK, error: nil)
 
     // When
         CurrencyService.shared.getCurrencies{ currencies, error in

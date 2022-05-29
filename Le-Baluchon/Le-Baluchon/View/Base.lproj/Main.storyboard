@@ -37,13 +37,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-61-dot" userLabel="CurrencyToConvert">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vpX-1I-PVL" userLabel="picker1">
                                 <rect key="frame" x="0.0" y="88" width="414" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3oi-ka-y54"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9n6-O9-8to"/>
-                                </connections>
-                            </pickerView>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-U4-2pf" userLabel="CurrencyToConvertLoading">
+                                        <rect key="frame" x="188.5" y="89.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                    <pickerView tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJM-61-dot" userLabel="CurrencyToConvert">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="3oi-ka-y54"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="9n6-O9-8to"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PjJ-U4-2pf" firstAttribute="centerY" secondItem="vpX-1I-PVL" secondAttribute="centerY" id="8Ab-De-kBU"/>
+                                    <constraint firstItem="xJM-61-dot" firstAttribute="top" secondItem="vpX-1I-PVL" secondAttribute="top" id="HTx-LI-8v7"/>
+                                    <constraint firstAttribute="bottom" secondItem="xJM-61-dot" secondAttribute="bottom" id="fgb-CK-zto"/>
+                                    <constraint firstAttribute="trailing" secondItem="xJM-61-dot" secondAttribute="trailing" id="jj0-sC-SOR"/>
+                                    <constraint firstItem="PjJ-U4-2pf" firstAttribute="centerX" secondItem="vpX-1I-PVL" secondAttribute="centerX" id="ncR-x6-BcP"/>
+                                    <constraint firstItem="xJM-61-dot" firstAttribute="leading" secondItem="vpX-1I-PVL" secondAttribute="leading" id="spQ-ks-exx"/>
+                                </constraints>
+                            </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant à convertir" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-8L-ZND" userLabel="AmountToConvert">
                                 <rect key="frame" x="20.5" y="304" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,39 +69,76 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-Gz-bWQ" userLabel="DoubleArrow">
                                 <rect key="frame" x="182" y="423" width="50" height="50"/>
                             </imageView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="AmountConverted">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxo-9b-cek" userLabel="ConvertedAmount">
                                 <rect key="frame" x="20.5" y="563" width="373" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <pickerView tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-wK-yFH" userLabel="ConvertedCurrency">
+                                <subviews>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="Amount">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="doI-kb-kXK" secondAttribute="height" multiplier="373:34" id="Ya3-PV-zrO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Fj-sqA">
+                                        <rect key="frame" x="176.5" y="7" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="IaN-Fj-sqA" firstAttribute="centerX" secondItem="kxo-9b-cek" secondAttribute="centerX" id="6Fm-zS-g81"/>
+                                    <constraint firstItem="doI-kb-kXK" firstAttribute="leading" secondItem="kxo-9b-cek" secondAttribute="leading" id="9Lb-lW-sjq"/>
+                                    <constraint firstAttribute="trailing" secondItem="doI-kb-kXK" secondAttribute="trailing" id="Hn5-76-NVn"/>
+                                    <constraint firstAttribute="bottom" secondItem="doI-kb-kXK" secondAttribute="bottom" id="ROF-7X-z9K"/>
+                                    <constraint firstItem="doI-kb-kXK" firstAttribute="top" secondItem="kxo-9b-cek" secondAttribute="top" id="WpT-WK-DPn"/>
+                                    <constraint firstItem="IaN-Fj-sqA" firstAttribute="centerY" secondItem="kxo-9b-cek" secondAttribute="centerY" id="lE4-jP-HK7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xj-1W-crD" userLabel="picker2">
                                 <rect key="frame" x="0.0" y="597" width="414" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="XvZ-fR-WzN"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YpN-r6-bqS"/>
-                                </connections>
-                            </pickerView>
+                                <subviews>
+                                    <pickerView tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-wK-yFH" userLabel="ConvertedCurrency">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="XvZ-fR-WzN"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="YpN-r6-bqS"/>
+                                        </connections>
+                                    </pickerView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Sfi-hD-NyL" userLabel="ConvertedCurrencyLoading">
+                                        <rect key="frame" x="188.5" y="89.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7dg-wK-yFH" firstAttribute="top" secondItem="3xj-1W-crD" secondAttribute="top" id="UXE-F6-mTo"/>
+                                    <constraint firstAttribute="bottom" secondItem="7dg-wK-yFH" secondAttribute="bottom" id="Vwt-KU-kyu"/>
+                                    <constraint firstItem="Sfi-hD-NyL" firstAttribute="centerX" secondItem="3xj-1W-crD" secondAttribute="centerX" id="bOt-CA-Qfe"/>
+                                    <constraint firstAttribute="trailing" secondItem="7dg-wK-yFH" secondAttribute="trailing" id="nZQ-Jj-6MN"/>
+                                    <constraint firstItem="Sfi-hD-NyL" firstAttribute="centerY" secondItem="3xj-1W-crD" secondAttribute="centerY" id="nfK-gZ-aPV"/>
+                                    <constraint firstItem="7dg-wK-yFH" firstAttribute="leading" secondItem="3xj-1W-crD" secondAttribute="leading" id="vmr-TY-7pF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="kxo-9b-cek" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AzL-8E-Ncx"/>
+                            <constraint firstItem="2H7-8L-ZND" firstAttribute="top" secondItem="vpX-1I-PVL" secondAttribute="bottom" id="EOV-ik-kab"/>
                             <constraint firstItem="GBF-Gz-bWQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LaA-0S-qKv"/>
-                            <constraint firstItem="7dg-wK-yFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M42-am-3gg"/>
                             <constraint firstItem="GBF-Gz-bWQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MNn-XO-UMI"/>
-                            <constraint firstItem="doI-kb-kXK" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="MiH-gs-4Su"/>
-                            <constraint firstItem="7dg-wK-yFH" firstAttribute="top" secondItem="doI-kb-kXK" secondAttribute="bottom" id="QG4-G7-78z"/>
+                            <constraint firstItem="3xj-1W-crD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TCW-Zg-VLf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vpX-1I-PVL" secondAttribute="trailing" id="U9w-L7-McW"/>
+                            <constraint firstItem="vpX-1I-PVL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ua5-xc-ouR"/>
                             <constraint firstItem="2H7-8L-ZND" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="Uhx-a0-R46"/>
-                            <constraint firstItem="2H7-8L-ZND" firstAttribute="top" secondItem="xJM-61-dot" secondAttribute="bottom" id="WXD-hf-0Vu"/>
-                            <constraint firstItem="xJM-61-dot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wou-3l-nmo"/>
+                            <constraint firstItem="vpX-1I-PVL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VHb-PL-F3c"/>
                             <constraint firstItem="2H7-8L-ZND" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zvc-aA-4qp"/>
-                            <constraint firstItem="xJM-61-dot" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="azQ-Ia-QS6"/>
-                            <constraint firstItem="doI-kb-kXK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GBF-Gz-bWQ" secondAttribute="bottom" constant="10" id="dDa-OT-0pM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3xj-1W-crD" secondAttribute="trailing" id="dIT-qA-leU"/>
                             <constraint firstItem="GBF-Gz-bWQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2H7-8L-ZND" secondAttribute="bottom" constant="10" id="eU9-gu-Xxb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7dg-wK-yFH" secondAttribute="bottom" id="juC-zC-Qfn"/>
-                            <constraint firstItem="doI-kb-kXK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vt2-8b-iwa"/>
-                            <constraint firstItem="xJM-61-dot" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yY9-zT-QiG"/>
-                            <constraint firstItem="7dg-wK-yFH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yr7-tU-Cxb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3xj-1W-crD" secondAttribute="bottom" id="f56-HQ-T4k"/>
+                            <constraint firstItem="3xj-1W-crD" firstAttribute="top" secondItem="kxo-9b-cek" secondAttribute="bottom" id="iC6-uE-dc2"/>
+                            <constraint firstItem="kxo-9b-cek" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="o2B-vc-qDH"/>
+                            <constraint firstItem="kxo-9b-cek" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GBF-Gz-bWQ" secondAttribute="top" constant="10" id="ysX-hd-Goc"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="1iI-32-Oda" appends="YES" id="CsK-YE-N0Q"/>
@@ -93,7 +147,11 @@
                     <tabBarItem key="tabBarItem" title="Item" id="onr-41-FMa"/>
                     <navigationItem key="navigationItem" title="Taux de change" id="0Wk-um-WBX"/>
                     <connections>
+                        <outlet property="amountConvertedTextField" destination="doI-kb-kXK" id="OOr-91-Ynz"/>
                         <outlet property="amountToConvertTextField" destination="2H7-8L-ZND" id="aPf-w4-6SO"/>
+                        <outlet property="convertedCurrencyPickerLoading" destination="Sfi-hD-NyL" id="eKU-yU-PlT"/>
+                        <outlet property="convertedCurrencyTextLoading" destination="IaN-Fj-sqA" id="8Rq-NZ-EAq"/>
+                        <outlet property="currencyToConvertPickerLoading" destination="PjJ-U4-2pf" id="8Ff-v4-hcv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
