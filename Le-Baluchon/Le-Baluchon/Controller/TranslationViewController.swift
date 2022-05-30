@@ -9,6 +9,9 @@ import UIKit
 
 class TranslationViewController: UIViewController {
 
+    @IBAction func sendreq(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
