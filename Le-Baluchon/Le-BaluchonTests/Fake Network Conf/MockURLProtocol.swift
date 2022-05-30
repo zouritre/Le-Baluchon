@@ -35,14 +35,14 @@ class MockURLProtocol: URLProtocol {
             }
             else {
                 guard let response = response else {
-                    client?.urlProtocol(self, didFailWithError: someError())
+                    client?.urlProtocolDidFinishLoading(self)
                     return
                 }
 
                 client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
                 
                 guard let data = data else {
-                    client?.urlProtocol(self, didFailWithError: someError())
+                    client?.urlProtocolDidFinishLoading(self)
                     return
                 }
 

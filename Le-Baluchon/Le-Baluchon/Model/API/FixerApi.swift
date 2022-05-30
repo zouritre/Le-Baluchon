@@ -11,7 +11,7 @@ struct FixerApi {
     
     static let root = "https://api.apilayer.com/fixer"
     
-    static let apikey = "uynnW4g7yQfGYHjWOPkoWHL2buhyQyGj"
+    static let apikey = "eQ7AZvkH1sZInoQJJXKH4tBbapC7zVBh"
     
     static let currencySymbol = "/symbols"
     
