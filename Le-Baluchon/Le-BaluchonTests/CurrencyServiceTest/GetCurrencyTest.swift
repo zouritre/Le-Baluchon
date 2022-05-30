@@ -10,8 +10,17 @@ import XCTest
 
 class GetCurrencyTest: XCTestCase {
 
+    var urlSession: URLSession?
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses = [MockURLProtocol.self]
+        
+        urlSession = URLSession(configuration: configuration)
+        
+        CurrencyService.shared.session = urlSession!
+    
     }
 
     override func tearDownWithError() throws {
@@ -21,88 +30,132 @@ class GetCurrencyTest: XCTestCase {
     //If error  received
     func testGetCurrencyShouldPostFailedCallbackIfError() {
     // Given
-        
-        CurrencyService.shared.session = URLSessionFake(data: nil, response: nil, error: FakeResponse.error)
+        //Set mock data
+        let response = FakeResponse.responseOK
+        let data = FakeResponse.correctCurrencySymbolData!
+        let error = FakeResponse.error
+
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
 
     // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
         CurrencyService.shared.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
             XCTAssertNotNil(error)
+            expectation.fulfill()
         }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
     }
     
     //If no data received
     func testGetCurrencyShouldPostFailedCallbackIfNoData() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: nil, response: nil, error: nil)
+        //Set mock data
+        let response: HTTPURLResponse? = nil
+        let data: Data? = nil
+        let error: Error? = nil
+
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
 
     // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
         CurrencyService.shared.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
             XCTAssertNotNil(error)
+            expectation.fulfill()
         }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
     }
     
     //If connexion failed
     func testGetCurrencyShouldPostFailedCallbackIfIncorrectResponse() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.correctCurrencySymbolData, response: FakeResponse.responseKO, error: nil)
+        // Set mock data
+        let response = FakeResponse.responseKO
+        let data = FakeResponse.correctCurrencySymbolData!
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
 
     // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        
         CurrencyService.shared.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
             XCTAssertNotNil(error)
+            expectation.fulfill()
+            
         }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
     }
     
     //If data decoding failed
     func testGetCurrencyShouldPostFailedCallbackIfIncorrectData() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.incorrectCurrencyData, response: FakeResponse.responseOK, error: nil)
+        // Set mock data
+        let response = FakeResponse.responseOK
+        let data = FakeResponse.incorrectCurrencyData!
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
 
     // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
         CurrencyService.shared.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
             XCTAssertNotNil(error)
+            expectation.fulfill()
         }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
     }
     
     //If correct data and no error
     func testGetCurrencyShouldPostFailedCallbackIfCorrectDataAndNoError() {
     // Given
-        CurrencyService.shared.session = URLSessionFake(data: FakeResponse.correctCurrencySymbolData, response: FakeResponse.responseOK, error: nil)
+        // Set mock data
+        let response = FakeResponse.responseOK
+        let data = FakeResponse.correctCurrencySymbolData!
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
 
     // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
         CurrencyService.shared.getCurrencies{ currencies, error in
 
     // Then
             XCTAssertNotNil(currencies)
             XCTAssertNil(error)
-            
-            guard let currencies = currencies else {
-                
-                //Fail the test if currencies become nil for some reason
-                XCTAssertNotNil(currencies)
-                
-                return
-            }
-            
-            //Check if datas matches
-            for (key, value) in currencies {
-                
-                if key == "AED" {
-                    XCTAssertEqual(value, "United Arab Emirates Dirham")
-                }
-            }
+            expectation.fulfill()
         }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
     }
 
     func testPerformanceExample() throws {

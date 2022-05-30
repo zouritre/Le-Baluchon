@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E93120B32840FDF700760277 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93120B22840FDF700760277 /* URLSessionFake.swift */; };
-		E93120B728412AAC00760277 /* URLSessionDataTaskFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */; };
+		E9147318284527B0000EADF6 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9147317284527B0000EADF6 /* MockURLProtocol.swift */; };
 		E935443C283BA879007C25BA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935443B283BA879007C25BA /* CurrencyService.swift */; };
 		E945DE31284381CF00E76393 /* ConversionQueryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945DE30284381CF00E76393 /* ConversionQueryJSON.swift */; };
 		E95333D22842F20700B8E915 /* CurrencyConversionJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95333D12842F20700B8E915 /* CurrencyConversionJSON.swift */; };
@@ -40,8 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E93120B22840FDF700760277 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
-		E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskFake.swift; sourceTree = "<group>"; };
+		E9147317284527B0000EADF6 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		E935443B283BA879007C25BA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = "Le-Baluchon/Model/Exchange Rate/CurrencyService.swift"; sourceTree = SOURCE_ROOT; };
 		E945DE30284381CF00E76393 /* ConversionQueryJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionQueryJSON.swift; sourceTree = "<group>"; };
 		E95333D12842F20700B8E915 /* CurrencyConversionJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyConversionJSON.swift; path = "Le-Baluchon/Model/JSONs/currency_convert/CurrencyConversionJSON.swift"; sourceTree = SOURCE_ROOT; };
@@ -95,8 +93,7 @@
 		E93120B528412A1200760277 /* Fake Network Conf */ = {
 			isa = PBXGroup;
 			children = (
-				E93120B22840FDF700760277 /* URLSessionFake.swift */,
-				E93120B628412AAC00760277 /* URLSessionDataTaskFake.swift */,
+				E9147317284527B0000EADF6 /* MockURLProtocol.swift */,
 				E9542A982840367400E86E9F /* FakeResponse.swift */,
 			);
 			path = "Fake Network Conf";
@@ -350,8 +347,7 @@
 			files = (
 				E9542A992840367400E86E9F /* FakeResponse.swift in Sources */,
 				E95333D52842FA9500B8E915 /* ConvertCurrencyTest.swift in Sources */,
-				E93120B32840FDF700760277 /* URLSessionFake.swift in Sources */,
-				E93120B728412AAC00760277 /* URLSessionDataTaskFake.swift in Sources */,
+				E9147318284527B0000EADF6 /* MockURLProtocol.swift in Sources */,
 				E99E49FA283AAFFF00DD6374 /* GetCurrencyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

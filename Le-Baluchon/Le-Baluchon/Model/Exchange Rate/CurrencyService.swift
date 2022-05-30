@@ -35,22 +35,13 @@ class CurrencyService {
         //Send the request to the API, manage potential errors and decode the JSON response.
         task = session.dataTask(with: request) { (data, response, error) in
             
-            if let error = error {
-                
-                completionHandler(nil, "Error: \(error.localizedDescription)")
-                
-                return
-
-            }
-            
-            guard let data = data else {
-                
-                completionHandler(nil, "No data received")
+            guard let data = data, error == nil else {
+                completionHandler(nil, "Error when retrieving data")
                 
                 return
                 
             }
-            
+        
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 
                 completionHandler(nil, "Connexion failed")
