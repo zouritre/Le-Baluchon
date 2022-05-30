@@ -72,7 +72,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxo-9b-cek" userLabel="ConvertedAmount">
                                 <rect key="frame" x="20.5" y="563" width="373" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="Amount">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant converti" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doI-kb-kXK" userLabel="Amount">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="doI-kb-kXK" secondAttribute="height" multiplier="373:34" id="Ya3-PV-zrO"/>
