@@ -19,7 +19,7 @@ class GetCurrencyTest: XCTestCase {
         
         urlSession = URLSession(configuration: configuration)
         
-        CurrencyService.shared.session = urlSession!
+        NetworkService.shared.session = urlSession!
     
     }
 
@@ -42,7 +42,7 @@ class GetCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.getCurrencies{ currency, error in
+        CurrencyService.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
@@ -68,7 +68,7 @@ class GetCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.getCurrencies{ currency, error in
+        CurrencyService.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
@@ -94,7 +94,7 @@ class GetCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
-        CurrencyService.shared.getCurrencies{ currency, error in
+        CurrencyService.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
@@ -121,7 +121,7 @@ class GetCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.getCurrencies{ currency, error in
+        CurrencyService.getCurrencies{ currency, error in
 
     // Then
             XCTAssertNil(currency)
@@ -147,7 +147,7 @@ class GetCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.getCurrencies{ currencies, error in
+        CurrencyService.getCurrencies{ currencies, error in
 
     // Then
             XCTAssertNotNil(currencies)

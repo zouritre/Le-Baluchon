@@ -21,7 +21,7 @@ class ConvertCurrencyTest: XCTestCase {
         
         urlSession = URLSession(configuration: configuration)
 
-        CurrencyService.shared.session = urlSession!
+        NetworkService.shared.session = urlSession!
     }
 
     override func tearDownWithError() throws {
@@ -43,7 +43,7 @@ class ConvertCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
+        CurrencyService.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
 
     // Then
             XCTAssertNil(result)
@@ -55,7 +55,7 @@ class ConvertCurrencyTest: XCTestCase {
     }
     
     //If no data received
-    func testGetCurrencyShouldPostFailedCallbackIfNoData() {
+    func testConvertCurrencyShouldPostFailedCallbackIfNoData() {
     //Given
         //Set mock data
         let response: HTTPURLResponse? = nil
@@ -69,7 +69,7 @@ class ConvertCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
-        CurrencyService.shared.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
+        CurrencyService.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
 
     // Then
             XCTAssertNil(result)
@@ -81,7 +81,7 @@ class ConvertCurrencyTest: XCTestCase {
     }
     
     //If connexion failed
-    func testGetCurrencyShouldPostFailedCallbackIfIncorrectResponse() {
+    func testConvertCurrencyShouldPostFailedCallbackIfIncorrectResponse() {
     // Given
         //Set mock data
         let response = FakeResponse.responseKO
@@ -95,7 +95,7 @@ class ConvertCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
-        CurrencyService.shared.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
+        CurrencyService.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
 
     // Then
             XCTAssertNil(result)
@@ -107,7 +107,7 @@ class ConvertCurrencyTest: XCTestCase {
     }
     
     //If data decoding failed
-    func testGetCurrencyShouldPostFailedCallbackIfIncorrectData() {
+    func testConvertCurrencyShouldPostFailedCallbackIfIncorrectData() {
     // Given
         //Set mock data
         let response = FakeResponse.responseOK
@@ -121,7 +121,7 @@ class ConvertCurrencyTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyService.shared.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
+        CurrencyService.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
 
     // Then
             XCTAssertNil(result)
@@ -133,7 +133,7 @@ class ConvertCurrencyTest: XCTestCase {
     }
     
     //If correct data and no error
-    func testGetCurrencyShouldPostFailedCallbackIfCorrectDataAndNoError() {
+    func testConvertCurrencyShouldPostFailedCallbackIfCorrectDataAndNoError() {
     // Given
         //Set mock data
         let response = FakeResponse.responseOK
@@ -148,7 +148,7 @@ class ConvertCurrencyTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
     // When
-        CurrencyService.shared.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
+        CurrencyService.convertCurrencies(from: "GBP", to: "JPY", amount: "25"){ result, error in
 
     // Then
             XCTAssertNotNil(result)
