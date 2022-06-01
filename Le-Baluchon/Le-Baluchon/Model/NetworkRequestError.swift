@@ -9,7 +9,7 @@ import Foundation
 
 enum NetworkRequestError: String {
     
-case noData = "Error when retrieving data"
+case unexpectedError = "An error occured when retrieving data"
     
 case connexionFailure = "Received incorrect response from server"
 

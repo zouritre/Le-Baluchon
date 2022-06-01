@@ -31,27 +31,18 @@ class NetworkService {
         task = session.dataTask(with: request) { (data, response, error) in
             
             guard let data = data, error == nil else {
-                completionHandler(nil, .noData)
-                
+                completionHandler(nil, .unexpectedError)
                 return
-                
-            }
-        
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                
-                completionHandler(nil, .connexionFailure)
-
-                return
-                
             }
             
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completionHandler(nil, .connexionFailure)
+                return
+            }
             
             guard let responseJSON = try? JSONDecoder().decode(type(of: dataStructure), from: data) else {
-                
                 completionHandler(nil, .unexpectedData)
-
                 return
-                
             }
             
             completionHandler(responseJSON, nil)

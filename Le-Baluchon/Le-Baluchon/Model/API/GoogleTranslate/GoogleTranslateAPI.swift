@@ -19,11 +19,11 @@ struct GoogleTranslateAPI {
     /// Translation format, either text or html
     private static let translationFormat = "text"
     
-    static var translationData = TranslationData(q: "", source: "", target: "")
+    static var translationData = TranslationData(q: "")
     
     static var requestTranslateText: URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootTranslate)?key=\(apiKey)&q=\(translationData.q)&format=\(translationFormat)&target=\(translationData.target)&source=\(translationData.source ?? "")")!)
+        var request = URLRequest(url: URL(string: "\(rootTranslate)?key=\(apiKey)&format=\(translationFormat)&q=\(translationData.q)&target=\(translationData.target!)&source=\(translationData.source!)")!)
         request.httpMethod = "POST"
         
         return request

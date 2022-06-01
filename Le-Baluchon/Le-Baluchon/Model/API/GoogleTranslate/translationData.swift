@@ -16,5 +16,6 @@ struct TranslationData {
     var source: String?
     
     /// source language
-    var target: String
+    var target: String?
+    
 }
