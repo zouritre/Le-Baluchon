@@ -44,4 +44,17 @@ class TranslationService {
         }
         
     }
+    
+    static func getSupportedLanguages(completionHandler: @escaping (_ languagesCode: [Language]?, _ error: NetworkRequestError?) -> Void) {
+        
+        NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestSupportedLanguages, dataStructure: SupportedLanguagesCodeResponse()) { languages, error in
+
+                guard let languages = languages as? SupportedLanguagesCodeResponse else {
+                    completionHandler(nil, error)
+                    return
+                }
+                
+                completionHandler(languages.data.languages, nil)
+            }
+    }
 }

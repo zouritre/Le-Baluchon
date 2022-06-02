@@ -36,7 +36,7 @@ extension ExchangeRateViewController: UIPickerViewDelegate{
     }
 }
 
-extension ExchangeRateViewController {
+extension UIViewController {
     
     func alert(message: String) {
         
@@ -162,7 +162,7 @@ class ExchangeRateViewController: UIViewController {
             return
         }
         
-        //Display the loading indictor when the provided currency amount is being converted
+        //Display the loading indicator when the provided currency amount is being converted
         convertedCurrencyTextLoading.isHidden = false
         
         CurrencyService.convertCurrencies(from: convertFrom, to: convertTo, amount: amount){ [weak self] result, error in

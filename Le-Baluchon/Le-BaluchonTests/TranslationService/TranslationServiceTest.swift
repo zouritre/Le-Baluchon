@@ -130,6 +130,68 @@ class TranslationServiceTest: XCTestCase {
         //wait 50ms for closure to return
         wait(for: [expectation], timeout: 0.05)
     }
+    
+    //If data decoding failed
+    func testGetSupportedLanguagesShouldPostFailedCallbackIfIncorrectData() {
+    // Given
+        // Set mock data
+        let response = FakeResponse.responseOK
+        let data = FakeResponse.incorrectData!
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
+
+    // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        TranslationService.getSupportedLanguages { languages, error in
+
+    // Then
+            XCTAssertNil(languages)
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
+    }
+    
+    //If correct data and no error
+    func testGetSupportedLanguagesShouldPostSuccessCallBackIfCorrectDataAndNoError() {
+    // Given
+        // Set mock data
+        let response = FakeResponse.responseOK
+        let data = FakeResponse.correctGetSupportedLanguagesData!
+        let error: Error? = nil
+        
+        MockURLProtocol.requestHandler = { request in
+            return (response, data, error)
+        }
+
+    // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        TranslationService.getSupportedLanguages { languages, error in
+
+    // Then
+            XCTAssertNotNil(languages)
+            XCTAssertNil(error)
+            expectation.fulfill()
+            
+            languages?.forEach { language in
+                
+                if language.language == "fr" {
+                    XCTAssertEqual(language.name, "Français")
+                }
+            }
+                
+        }
+        //wait 50ms for closure to return
+        wait(for: [expectation], timeout: 0.05)
+        
+        
+    }
 
 }
 

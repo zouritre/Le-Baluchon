@@ -52,4 +52,11 @@ class FakeResponse {
         
         return try! Data(contentsOf: url)
     }
+    
+    static var correctGetSupportedLanguagesData: Data? {
+    
+        let url = bundle.url(forResource: "GetSupportedLanguagesCode", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
 }
