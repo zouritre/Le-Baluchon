@@ -64,7 +64,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant à convertir" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-8L-ZND" userLabel="AmountToConvert">
                                 <rect key="frame" x="20.5" y="304" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-Gz-bWQ" userLabel="DoubleArrow">
                                 <rect key="frame" x="182" y="423" width="50" height="50"/>
@@ -78,7 +78,7 @@
                                             <constraint firstAttribute="width" secondItem="doI-kb-kXK" secondAttribute="height" multiplier="373:34" id="Ya3-PV-zrO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Fj-sqA">
                                         <rect key="frame" x="176.5" y="7" width="20" height="20"/>
@@ -235,113 +235,196 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-dl-Pji">
-                                <rect key="frame" x="167.5" y="108" width="79" height="31"/>
+                                <rect key="frame" x="180" y="108" width="54" height="37"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Français"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Auto"/>
                                 <connections>
-                                    <action selector="sendreq:" destination="l5w-Bq-ZBh" eventType="touchUpInside" id="5Pg-FS-bwX"/>
-                                    <segue destination="QUO-Fw-bZp" kind="presentation" id="SXp-2j-OPp"/>
+                                    <segue destination="Xte-4Y-Jpw" kind="presentation" id="6be-EH-Vqu"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-Py-f1I" userLabel="ToBeConvertedSV">
-                                <rect key="frame" x="10" y="149" width="394" height="254"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-lf-B83">
+                                <rect key="frame" x="10" y="88" width="170" height="62"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mbr-jB-MaP" userLabel="ToBeConvertedTV">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="725"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
-                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-détection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ag-6K-ocP" userLabel="Auto-detection">
+                                        <rect key="frame" x="27.5" y="0.0" width="115" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7H-Py-7IB">
+                                        <rect key="frame" x="60.5" y="31" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="autoDetect:" destination="l5w-Bq-ZBh" eventType="valueChanged" id="EM8-Qf-Z94"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-Py-f1I" userLabel="ToBeTranslatedSV">
+                                <rect key="frame" x="10" y="155" width="394" height="248"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQx-Tz-SoT">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="725"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mbr-jB-MaP" userLabel="ToBeTranslatedTV">
+                                                <rect key="frame" x="10" y="0.0" width="374" height="725"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Mbr-jB-MaP" firstAttribute="leading" secondItem="nQx-Tz-SoT" secondAttribute="leading" constant="10" id="OTj-jy-Nhb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mbr-jB-MaP" secondAttribute="trailing" constant="10" id="QaR-Fv-G1L"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mbr-jB-MaP" secondAttribute="bottom" id="iuH-Wl-9yi"/>
+                                            <constraint firstItem="Mbr-jB-MaP" firstAttribute="top" secondItem="nQx-Tz-SoT" secondAttribute="top" id="lAh-3P-1f0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
-                                    <constraint firstItem="Mbr-jB-MaP" firstAttribute="width" secondItem="BLc-Py-f1I" secondAttribute="width" id="29Q-S3-7p7"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mbr-jB-MaP" secondAttribute="trailing" id="ez0-uf-dsI"/>
-                                    <constraint firstItem="Mbr-jB-MaP" firstAttribute="top" secondItem="BLc-Py-f1I" secondAttribute="top" id="lMW-UY-TV9"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mbr-jB-MaP" secondAttribute="bottom" id="qIN-u6-HRx"/>
-                                    <constraint firstItem="Mbr-jB-MaP" firstAttribute="leading" secondItem="BLc-Py-f1I" secondAttribute="leading" id="qtI-Kk-FQ6"/>
+                                    <constraint firstItem="nQx-Tz-SoT" firstAttribute="leading" secondItem="BLc-Py-f1I" secondAttribute="leading" id="IiU-Fl-rgf"/>
+                                    <constraint firstAttribute="trailing" secondItem="nQx-Tz-SoT" secondAttribute="trailing" id="Lc8-pD-ZX6"/>
+                                    <constraint firstItem="nQx-Tz-SoT" firstAttribute="top" secondItem="BLc-Py-f1I" secondAttribute="top" id="Uhz-E9-M34"/>
+                                    <constraint firstItem="nQx-Tz-SoT" firstAttribute="width" secondItem="BLc-Py-f1I" secondAttribute="width" id="jhZ-Ce-0Q6"/>
+                                    <constraint firstAttribute="bottom" secondItem="nQx-Tz-SoT" secondAttribute="bottom" id="qZd-my-kbS"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-u2-LqU">
                                 <rect key="frame" x="182" y="423" width="50" height="50"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St1-23-BuO">
-                                <rect key="frame" x="171" y="493" width="72" height="31"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St1-23-BuO">
+                                <rect key="frame" x="171.5" y="493" width="71.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Anglais"/>
                                 <connections>
-                                    <segue destination="QUO-Fw-bZp" kind="presentation" id="MDm-Ei-vgD"/>
+                                    <segue destination="Xte-4Y-Jpw" kind="presentation" id="6YW-FL-pB9"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="221-Ab-GgV" userLabel="ConvertedSV">
-                                <rect key="frame" x="10" y="534" width="414" height="269"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="221-Ab-GgV" userLabel="TranslationSV">
+                                <rect key="frame" x="10" y="534" width="394" height="269"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-GB-aam" userLabel="ConvertedTV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="660.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
-                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXh-L3-dgG">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="725"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-GB-aam" userLabel="TranslatedTV">
+                                                <rect key="frame" x="10" y="0.0" width="374" height="725"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="eqs-GB-aam" firstAttribute="leading" secondItem="XXh-L3-dgG" secondAttribute="leading" constant="10" id="8SF-2d-fRv"/>
+                                            <constraint firstItem="eqs-GB-aam" firstAttribute="top" secondItem="XXh-L3-dgG" secondAttribute="top" id="HZY-Ov-0zB"/>
+                                            <constraint firstAttribute="bottom" secondItem="eqs-GB-aam" secondAttribute="bottom" id="VIv-RF-J3O"/>
+                                            <constraint firstAttribute="trailing" secondItem="eqs-GB-aam" secondAttribute="trailing" constant="10" id="g89-s6-qEP"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
-                                    <constraint firstItem="eqs-GB-aam" firstAttribute="top" secondItem="221-Ab-GgV" secondAttribute="top" id="OEH-od-UQj"/>
-                                    <constraint firstAttribute="trailing" secondItem="eqs-GB-aam" secondAttribute="trailing" id="iT7-qQ-Gbr"/>
-                                    <constraint firstAttribute="bottom" secondItem="eqs-GB-aam" secondAttribute="bottom" id="tWX-7T-AI9"/>
-                                    <constraint firstItem="eqs-GB-aam" firstAttribute="width" secondItem="221-Ab-GgV" secondAttribute="width" id="w1M-g6-hEo"/>
-                                    <constraint firstItem="eqs-GB-aam" firstAttribute="leading" secondItem="221-Ab-GgV" secondAttribute="leading" id="z6h-x3-St7"/>
+                                    <constraint firstItem="XXh-L3-dgG" firstAttribute="leading" secondItem="221-Ab-GgV" secondAttribute="leading" id="4LL-vT-d4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="XXh-L3-dgG" secondAttribute="trailing" id="jBA-oj-p7c"/>
+                                    <constraint firstItem="XXh-L3-dgG" firstAttribute="top" secondItem="221-Ab-GgV" secondAttribute="top" id="mLs-En-2zY"/>
+                                    <constraint firstAttribute="bottom" secondItem="XXh-L3-dgG" secondAttribute="bottom" id="qms-Ka-pZS"/>
+                                    <constraint firstItem="XXh-L3-dgG" firstAttribute="width" secondItem="221-Ab-GgV" secondAttribute="width" id="zdG-Pn-j6j"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="md6-Jc-cCB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="221-Ab-GgV" firstAttribute="top" secondItem="St1-23-BuO" secondAttribute="bottom" constant="10" id="0sA-p3-E8P"/>
-                            <constraint firstItem="221-Ab-GgV" firstAttribute="trailing" secondItem="md6-Jc-cCB" secondAttribute="trailing" constant="10" id="1PI-Kb-fCB"/>
+                            <constraint firstItem="Dgh-lf-B83" firstAttribute="top" secondItem="md6-Jc-cCB" secondAttribute="top" id="56u-2j-bnc"/>
                             <constraint firstItem="md6-Jc-cCB" firstAttribute="bottom" secondItem="221-Ab-GgV" secondAttribute="bottom" constant="10" id="9hk-xc-nKT"/>
                             <constraint firstItem="221-Ab-GgV" firstAttribute="leading" secondItem="md6-Jc-cCB" secondAttribute="leading" constant="10" id="JG4-4S-IQs"/>
                             <constraint firstItem="NcQ-dl-Pji" firstAttribute="centerX" secondItem="Uui-l5-A7J" secondAttribute="centerX" id="LuT-T2-5Ew"/>
+                            <constraint firstItem="Dgh-lf-B83" firstAttribute="leading" secondItem="md6-Jc-cCB" secondAttribute="leading" constant="10" id="RWl-XI-T3M"/>
                             <constraint firstItem="BLc-Py-f1I" firstAttribute="leading" secondItem="md6-Jc-cCB" secondAttribute="leading" constant="10" id="S9X-Y7-Rxg"/>
                             <constraint firstItem="OJn-u2-LqU" firstAttribute="centerY" secondItem="Uui-l5-A7J" secondAttribute="centerY" id="SGt-vF-bTd"/>
+                            <constraint firstItem="Dgh-lf-B83" firstAttribute="trailing" secondItem="NcQ-dl-Pji" secondAttribute="leading" id="Uxp-yY-lCP"/>
                             <constraint firstItem="OJn-u2-LqU" firstAttribute="centerX" secondItem="Uui-l5-A7J" secondAttribute="centerX" id="WgG-NQ-3aQ"/>
                             <constraint firstItem="St1-23-BuO" firstAttribute="top" secondItem="OJn-u2-LqU" secondAttribute="bottom" constant="20" id="Yj4-Yu-OeG"/>
                             <constraint firstItem="OJn-u2-LqU" firstAttribute="top" secondItem="BLc-Py-f1I" secondAttribute="bottom" constant="20" id="bSk-z5-3Ns"/>
                             <constraint firstItem="md6-Jc-cCB" firstAttribute="trailing" secondItem="BLc-Py-f1I" secondAttribute="trailing" constant="10" id="eEb-1G-azq"/>
-                            <constraint firstItem="Mbr-jB-MaP" firstAttribute="height" secondItem="md6-Jc-cCB" secondAttribute="height" id="enm-lv-1Fa"/>
+                            <constraint firstItem="nQx-Tz-SoT" firstAttribute="height" secondItem="md6-Jc-cCB" secondAttribute="height" id="rJM-II-Tt5"/>
+                            <constraint firstItem="md6-Jc-cCB" firstAttribute="trailing" secondItem="221-Ab-GgV" secondAttribute="trailing" constant="10" id="sbI-fw-Gsq"/>
+                            <constraint firstItem="XXh-L3-dgG" firstAttribute="height" secondItem="md6-Jc-cCB" secondAttribute="height" id="ugq-cg-6af"/>
                             <constraint firstItem="St1-23-BuO" firstAttribute="centerX" secondItem="Uui-l5-A7J" secondAttribute="centerX" id="xTd-aQ-fsz"/>
                             <constraint firstItem="BLc-Py-f1I" firstAttribute="top" secondItem="NcQ-dl-Pji" secondAttribute="bottom" constant="10" id="xfE-mF-Kc6"/>
                             <constraint firstItem="NcQ-dl-Pji" firstAttribute="top" secondItem="md6-Jc-cCB" secondAttribute="top" constant="20" id="ygh-h6-zc7"/>
+                            <constraint firstItem="BLc-Py-f1I" firstAttribute="top" secondItem="Dgh-lf-B83" secondAttribute="bottom" constant="5" id="yl8-3i-qGq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="VDV-Zh-pQw"/>
                     <navigationItem key="navigationItem" title="Traduction" id="TB1-3t-mQv"/>
+                    <connections>
+                        <outlet property="autoDetectSwitch" destination="M7H-Py-7IB" id="ehT-zg-vdI"/>
+                        <outlet property="sourceLanguage" destination="NcQ-dl-Pji" id="pEt-es-sO1"/>
+                        <outlet property="targetLanguage" destination="St1-23-BuO" id="qTJ-Kc-UmE"/>
+                        <outlet property="toBeTranslated" destination="Mbr-jB-MaP" id="oww-oy-gc7"/>
+                        <outlet property="translatedText" destination="eqs-GB-aam" id="0vZ-7m-RCt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZQ-lI-3ef" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728" y="-552"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="GHm-mi-aQQ">
+        <!--Language Selection View Controller-->
+        <scene sceneID="jwf-Sb-TXS">
             <objects>
-                <viewController id="QUO-Fw-bZp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="llA-lB-Ma2">
+                <viewController id="Xte-4Y-Jpw" customClass="LanguageSelectionViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Snv-mD-lvT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1b-14-qjp">
-                                <rect key="frame" x="0.0" y="340" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VF-2P-mPn">
+                                <rect key="frame" x="0.0" y="626" width="414" height="216"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xte-4Y-Jpw" id="kWh-Ni-m0Z"/>
+                                    <outlet property="delegate" destination="Xte-4Y-Jpw" id="RV8-Rr-yFF"/>
+                                </connections>
                             </pickerView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="hQN-i4-5iI"/>
+                        <viewLayoutGuide key="safeArea" id="idJ-uT-1GA"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="4VF-2P-mPn" firstAttribute="leading" secondItem="Snv-mD-lvT" secondAttribute="leading" id="1qe-Yd-rTm"/>
+                            <constraint firstItem="idJ-uT-1GA" firstAttribute="trailing" secondItem="4VF-2P-mPn" secondAttribute="trailing" id="2Nj-Rk-d3x"/>
+                            <constraint firstItem="idJ-uT-1GA" firstAttribute="bottom" secondItem="4VF-2P-mPn" secondAttribute="bottom" id="lyw-vP-O7d"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Tys-TB-Orx" appends="YES" id="cGp-dE-duS"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="languagePicker" destination="4VF-2P-mPn" id="TGb-dL-2io"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="66J-fi-ZJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Our-mE-tXB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Tys-TB-Orx">
+                    <connections>
+                        <action selector="sendSelectedLanguage:" destination="Xte-4Y-Jpw" id="MEl-my-dAV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1694" y="-552"/>
+            <point key="canvasLocation" x="1530" y="-552"/>
         </scene>
         <!--WeatherViewController-->
         <scene sceneID="AOI-ut-J4J">
@@ -362,7 +445,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SXp-2j-OPp"/>
+        <segue reference="6be-EH-Vqu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="devise" width="30" height="30"/>
@@ -377,6 +460,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

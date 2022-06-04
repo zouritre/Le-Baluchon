@@ -36,7 +36,7 @@ extension ExchangeRateViewController: UIPickerViewDelegate{
     }
 }
 
-extension ExchangeRateViewController {
+extension UIViewController {
     
     func alert(message: String) {
         
@@ -76,7 +76,7 @@ class ExchangeRateViewController: UIViewController {
         super.viewDidLoad()
         
         //Get currencies symbol and name from API and display their names in each pickerView. Or display an alert if errors occured
-        CurrencyService.shared.getCurrencies { [weak self] currencies, error  in
+        CurrencyService.getCurrencies { [weak self] currencies, error  in
             
             guard let self = self else {
                 return
@@ -117,7 +117,7 @@ class ExchangeRateViewController: UIViewController {
                 DispatchQueue.main.sync {
                     
                     //Display an alert with the error encountered
-                    self.alert(message: error)
+                    self.alert(message: error.rawValue)
                 }
             }
         }
@@ -162,10 +162,10 @@ class ExchangeRateViewController: UIViewController {
             return
         }
         
-        //Display the loading indictor when the provided currency amount is being converted
+        //Display the loading indicator when the provided currency amount is being converted
         convertedCurrencyTextLoading.isHidden = false
         
-        CurrencyService.shared.convertCurrencies(from: convertFrom, to: convertTo, amount: amount){ [weak self] result, error in
+        CurrencyService.convertCurrencies(from: convertFrom, to: convertTo, amount: amount){ [weak self] result, error in
 
             guard let self = self else {
                 return
@@ -197,7 +197,7 @@ class ExchangeRateViewController: UIViewController {
                     //Display an alert if an error occured while retrieving datas
                     self.convertedCurrencyTextLoading.isHidden = true
                     
-                    self.alert(message: error)
+                    self.alert(message: error.rawValue)
                 }
             }
 

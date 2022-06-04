@@ -21,6 +21,8 @@ class FakeResponse {
     
     static let error = CurrencyError()
     
+    static let incorrectData = "erreur".data(using: .utf8)
+    
     private static let bundle = Bundle(for: FakeResponse.self)
     
     static var correctCurrencySymbolData: Data? {
@@ -37,5 +39,24 @@ class FakeResponse {
         return try! Data(contentsOf: url)
     }
     
-    static let incorrectCurrencyData = "erreur".data(using: .utf8)
+    static var correctTranslationData: Data? {
+    
+        let url = bundle.url(forResource: "TextTranslationData", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
+    
+    static var correctAutoDetectLanguageData: Data? {
+    
+        let url = bundle.url(forResource: "AutoDetectLanguageData", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
+    
+    static var correctGetSupportedLanguagesData: Data? {
+    
+        let url = bundle.url(forResource: "GetSupportedLanguagesCode", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
 }
