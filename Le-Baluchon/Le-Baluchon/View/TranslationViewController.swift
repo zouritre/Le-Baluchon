@@ -19,8 +19,9 @@ extension TranslationViewController: LanguageSelectionDelegate {
                         
             if sender.tag == 0 {
                 
-                //Put the switch on position Off
                 self.autoDetectSwitch.isOn = false
+                
+                self.sender?.setTitle(language, for: .normal)
                 
                 self.sourceLanguageName = language
                 self.sourceLanguageCode = languageCode
@@ -83,7 +84,6 @@ class TranslationViewController: UIViewController {
                 sourceLanguageName = oldValue
                 
             }
-            sourceLanguage.setTitle(sourceLanguageName, for: .normal)
         }
     }
     var sourceLanguageCode = "fr" {
@@ -95,10 +95,6 @@ class TranslationViewController: UIViewController {
                 
                 sourceLanguageCode = oldValue
                 
-            }
-            else {
-                //Set the selected language as the button title
-                sender?.setTitle(sourceLanguageName, for: .normal)
             }
         }
     }
@@ -113,8 +109,6 @@ class TranslationViewController: UIViewController {
                 targetLanguageName = oldValue
                 
             }
-            
-            targetLanguage.setTitle(targetLanguageName, for: .normal)
         }
     }
     
@@ -129,7 +123,7 @@ class TranslationViewController: UIViewController {
                 
             }
             else {
-                sender?.setTitle(targetLanguageName, for: .normal)
+                targetLanguage.setTitle(targetLanguageName, for: .normal)
             }
         }
     }
