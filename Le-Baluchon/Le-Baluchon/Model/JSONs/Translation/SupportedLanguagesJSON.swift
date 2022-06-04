@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SupportedLanguagesCodeResponse: Decodable {
+struct SupportedLanguagesJSON: Decodable {
     
     var data: Languages
     

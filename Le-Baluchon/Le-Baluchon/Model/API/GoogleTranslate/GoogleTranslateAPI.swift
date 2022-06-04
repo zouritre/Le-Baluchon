@@ -24,13 +24,17 @@ struct GoogleTranslateAPI {
     /// The language in wich to translate the returned language names
     private static var languageNamesTarget = "fr"
     
-    static var translationData = TranslationData(q: "")
+    static var q: String?
+    static var target: String?
+    static var source: String?
     
     
     
     static var requestTranslateText: URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootTranslate)?key=\(apiKey)&format=\(translationFormat)&q=\(translationData.q)&target=\(translationData.target!)&source=\(translationData.source!)")!)
+        let translateTextUrlString = "\(self.rootTranslate)?key=\(apiKey)&format=\(translationFormat)&q=\(q!)&target=\(target!)&source=\(source!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
+        var request = URLRequest(url: URL(string: translateTextUrlString)!)
         request.httpMethod = "POST"
         
         return request
@@ -38,7 +42,9 @@ struct GoogleTranslateAPI {
     
     static var requestAutoDetectLanguage: URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootAutoDetectLanguage)?key=\(apiKey)&q=\(translationData.q)")!)
+        let autoDetectLanguageUrlString = "\(rootAutoDetectLanguage)?key=\(apiKey)&q=\(q!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
+        var request = URLRequest(url: URL(string: autoDetectLanguageUrlString)!)
         request.httpMethod = "POST"
         
         return request

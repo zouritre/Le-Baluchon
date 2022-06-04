@@ -54,6 +54,7 @@ class LanguageSelectionViewController: UIViewController {
                     
                     //Display an alert with the error encountered
                     self.alert(message: error!.rawValue)
+                    
                 }
             }
             else {
@@ -81,18 +82,24 @@ class LanguageSelectionViewController: UIViewController {
     
     @IBOutlet weak var languagePicker: UIPickerView!
     
+    //Send selected language to main view controller on dismissal of this controller
     @IBAction func sendSelectedLanguage(_ sender: UITapGestureRecognizer) {
         
-        let selectedLanguage = languages[languagePicker.selectedRow(inComponent: 0)]
-        let selectedLanguageCode = languageCodes[languagePicker.selectedRow(inComponent: 0)]
-        
-        guard let languageSelectionDelegate = languageSelectionDelegate else {
-            return
+        if languages.count > 0 {
+            
+            let selectedLanguage = languages[languagePicker.selectedRow(inComponent: 0)]
+            let selectedLanguageCode = languageCodes[languagePicker.selectedRow(inComponent: 0)]
+            
+            guard let languageSelectionDelegate = languageSelectionDelegate else {
+                return
+            }
+            
+            languageSelectionDelegate.selectedLanguage(language: selectedLanguage, languageCode: selectedLanguageCode)
+            
         }
         
-        languageSelectionDelegate.selectedLanguage(language: selectedLanguage, languageCode: selectedLanguageCode)
-        
         dismiss(animated: true)
+        
     }
     
     /*

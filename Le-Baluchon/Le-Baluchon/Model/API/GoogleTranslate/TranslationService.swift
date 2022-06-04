@@ -11,7 +11,7 @@ class TranslationService {
     
     static func detectLanguage(q: String, completionHandler: @escaping (_ languageCode: String?, _ error: NetworkRequestError?) -> Void) {
         
-        GoogleTranslateAPI.translationData.q = q
+        GoogleTranslateAPI.q = q
         
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestAutoDetectLanguage, dataStructure: AutoDetectLanguageJSON()) {languageCode, error in
             
@@ -28,9 +28,9 @@ class TranslationService {
     
     static func  translateText(q: String, source: String, target: String, completionHandler: @escaping (_ translation: String?, _ error: NetworkRequestError?) -> Void) {
         
-        GoogleTranslateAPI.translationData.q = q
-        GoogleTranslateAPI.translationData.target = target
-        GoogleTranslateAPI.translationData.source = source
+        GoogleTranslateAPI.q = q
+        GoogleTranslateAPI.target = target
+        GoogleTranslateAPI.source = source
 
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestTranslateText, dataStructure: TextTranslationJSON()) {translation, error in
             
@@ -45,11 +45,11 @@ class TranslationService {
         
     }
     
-    static func getSupportedLanguages(completionHandler: @escaping (_ languagesCode: [Language]?, _ error: NetworkRequestError?) -> Void) {
+    static func getSupportedLanguages(completionHandler: @escaping (_ languageDatas: [Language]?, _ error: NetworkRequestError?) -> Void) {
         
-        NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestSupportedLanguages, dataStructure: SupportedLanguagesCodeResponse()) { languages, error in
+        NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestSupportedLanguages, dataStructure: SupportedLanguagesJSON()) { languages, error in
 
-                guard let languages = languages as? SupportedLanguagesCodeResponse else {
+                guard let languages = languages as? SupportedLanguagesJSON else {
                     completionHandler(nil, error)
                     return
                 }
