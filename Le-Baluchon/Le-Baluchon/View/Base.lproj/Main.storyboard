@@ -259,6 +259,12 @@
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="0/400" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-jj-xOQ">
+                                <rect key="frame" x="358" y="124.5" width="46" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-Py-f1I" userLabel="ToBeTranslatedSV">
                                 <rect key="frame" x="10" y="155" width="394" height="248"/>
                                 <subviews>
@@ -270,7 +276,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,9 +302,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-u2-LqU">
-                                <rect key="frame" x="182" y="423" width="50" height="50"/>
-                            </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St1-23-BuO">
                                 <rect key="frame" x="171.5" y="493" width="71.5" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -313,12 +316,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXh-L3-dgG">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="725"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-GB-aam" userLabel="TranslatedTV">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-GB-aam" userLabel="TranslatedTV">
                                                 <rect key="frame" x="10" y="0.0" width="374" height="725"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -344,6 +347,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="flechesDouble" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-u2-LqU">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="md6-Jc-cCB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -351,6 +357,9 @@
                             <constraint firstItem="221-Ab-GgV" firstAttribute="top" secondItem="St1-23-BuO" secondAttribute="bottom" constant="10" id="0sA-p3-E8P"/>
                             <constraint firstItem="Dgh-lf-B83" firstAttribute="top" secondItem="md6-Jc-cCB" secondAttribute="top" id="56u-2j-bnc"/>
                             <constraint firstItem="md6-Jc-cCB" firstAttribute="bottom" secondItem="221-Ab-GgV" secondAttribute="bottom" constant="10" id="9hk-xc-nKT"/>
+                            <constraint firstItem="2Pc-jj-xOQ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="NcQ-dl-Pji" secondAttribute="trailing" priority="1" constant="10" id="A9s-Vg-S7g"/>
+                            <constraint firstItem="md6-Jc-cCB" firstAttribute="trailing" secondItem="2Pc-jj-xOQ" secondAttribute="trailing" constant="10" id="AJj-c3-jJP"/>
+                            <constraint firstItem="BLc-Py-f1I" firstAttribute="top" secondItem="2Pc-jj-xOQ" secondAttribute="bottom" constant="10" id="J3t-4u-vA5"/>
                             <constraint firstItem="221-Ab-GgV" firstAttribute="leading" secondItem="md6-Jc-cCB" secondAttribute="leading" constant="10" id="JG4-4S-IQs"/>
                             <constraint firstItem="NcQ-dl-Pji" firstAttribute="centerX" secondItem="Uui-l5-A7J" secondAttribute="centerX" id="LuT-T2-5Ew"/>
                             <constraint firstItem="Dgh-lf-B83" firstAttribute="leading" secondItem="md6-Jc-cCB" secondAttribute="leading" constant="10" id="RWl-XI-T3M"/>
@@ -374,6 +383,7 @@
                     <navigationItem key="navigationItem" title="Traduction" id="TB1-3t-mQv"/>
                     <connections>
                         <outlet property="autoDetectSwitch" destination="M7H-Py-7IB" id="ehT-zg-vdI"/>
+                        <outlet property="caracterCounterLabel" destination="2Pc-jj-xOQ" id="x5e-np-n9S"/>
                         <outlet property="sourceLanguage" destination="NcQ-dl-Pji" id="pEt-es-sO1"/>
                         <outlet property="targetLanguage" destination="St1-23-BuO" id="qTJ-Kc-UmE"/>
                         <outlet property="toBeTranslated" destination="Mbr-jB-MaP" id="oww-oy-gc7"/>
@@ -382,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZQ-lI-3ef" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="-552"/>
+            <point key="canvasLocation" x="727.536231884058" y="-552.45535714285711"/>
         </scene>
         <!--Language Selection View Controller-->
         <scene sceneID="jwf-Sb-TXS">
