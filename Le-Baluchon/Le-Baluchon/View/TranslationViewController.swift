@@ -48,7 +48,7 @@ extension TranslationViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         
         DispatchQueue.main.async {
-                        
+            
             guard self.timer == nil else {
                 
                 self.timer!.invalidate()
@@ -64,6 +64,89 @@ extension TranslationViewController: UITextViewDelegate {
             
         }
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text.count > self.maxCaracterAllowed {
+            //If pasting a copied text wich exceed maximum caracters count
+            
+            DispatchQueue.main.async {
+                
+                self.alert(message: "Texte à coller trop volumineux")
+                
+            }
+            
+            //cancel the action
+            return false
+            
+        }
+        else if range.length == 1 && (1..<self.maxCaracterAllowed).contains(self.caracterCounter) {
+            //Text being deleted when counter is below max and above zero, allow
+            
+            DispatchQueue.main.async {
+                
+                self.caracterCounterLabel.text = "\(self.caracterCounter - 1)/\(self.maxCaracterAllowed)"
+
+            }
+            
+            return true
+        
+        }
+        else if range.length == 1 && self.caracterCounter >= self.maxCaracterAllowed {
+            //Text being deleted when counter is at max, allow
+            
+            DispatchQueue.main.async {
+                
+                self.caracterCounterLabel.text = "\(self.caracterCounter - 1)/\(self.maxCaracterAllowed)"
+
+            }
+            
+            return true
+            
+        }
+        else if range.length == 0 && text.count == 1 && self.caracterCounter < self.maxCaracterAllowed {
+            //Caracter being added when counter is below max, allow
+            
+            DispatchQueue.main.async {
+                
+                self.caracterCounterLabel.text = "\(self.caracterCounter + 1)/\(self.maxCaracterAllowed)"
+            
+            }
+            
+            return true
+        
+        }
+        else if range.length == 0 && text.count > 1 && self.caracterCounter + text.count < self.maxCaracterAllowed {
+            //Text being added and total caracters sum is below max, allow
+            
+            DispatchQueue.main.async {
+                
+                self.caracterCounterLabel.text = "\(self.caracterCounter + 1)/\(self.maxCaracterAllowed)"
+            
+            }
+            
+            return true
+        
+        }
+        else if range.length == 0 && text.count > 1 && self.caracterCounter + text.count == self.maxCaracterAllowed {
+            //Text being added and total caracters sum is below max, allow
+            
+            DispatchQueue.main.async {
+                
+                self.caracterCounterLabel.text = "\(self.caracterCounter)/\(self.maxCaracterAllowed)"
+            
+            }
+            
+            return true
+        
+        }
+        else {
+            //Any other cases, not allow to add the text
+            
+            return false
+            
+        }
+    }
 }
 class TranslationViewController: UIViewController {
     
@@ -73,6 +156,19 @@ class TranslationViewController: UIViewController {
     
     /// Button wich opened the language picker view
     var sender: UIButton?
+    
+    var maxCaracterAllowed = 400
+    
+    
+    var caracterCounter: Int {
+        
+            guard let textCounter = toBeTranslated.text?.count else {
+                return 0
+            }
+            
+            return textCounter
+        
+    }
     
     var sourceLanguageName = "Français" {
         
@@ -136,6 +232,8 @@ class TranslationViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var caracterCounterLabel: UILabel!
+    
     @IBOutlet weak var autoDetectSwitch: UISwitch!
     
     @IBOutlet weak var sourceLanguage: UIButton!
@@ -185,14 +283,10 @@ class TranslationViewController: UIViewController {
                 
                 if self.autoDetectSwitch.isOn {
                     
-                    print("did enter autodetect")
-                    
                     self.translateTextWithAutoDetection()
                     
                 }
                 else {
-                    
-                    print("did enter manual detect")
                     
                     self.translateTextWithoutAutoDetection()
                     
@@ -240,8 +334,6 @@ class TranslationViewController: UIViewController {
     }
     
     func translateTextWithoutAutoDetection() {
-        
-        print("Auto detect? \(self.autoDetectSwitch.isOn)\nSource: \(self.sourceLanguageCode) \nTarget: \(self.targetLanguageCode)\nq: \(self.toBeTranslated.text!)")
         
         TranslationService.translateText(q: self.toBeTranslated.text, source: self.sourceLanguageCode, target: self.targetLanguageCode) { translation, error in
             
