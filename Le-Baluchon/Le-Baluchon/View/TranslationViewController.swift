@@ -264,6 +264,15 @@ class TranslationViewController: UIViewController {
             
     }
     
+    /// Clear the text fields and reset caracter counter
+    /// - Parameter sender: UIButton
+    @IBAction func clearTextButton(_ sender: Any) {
+        
+        toBeTranslated.text = ""
+        translatedText.text = ""
+        
+        caracterCounterLabel.text = "\(self.caracterCounter)/\(self.maxCaracterAllowed)"    }
+    
     /// Send a translation request on the source text field after a delay
     /// - Parameter timer: Number of seconds to wait before sending the request
     func translateTextAfter(timer: Double) {

@@ -272,17 +272,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="725"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mbr-jB-MaP" userLabel="ToBeTranslatedTV">
-                                                <rect key="frame" x="10" y="0.0" width="374" height="725"/>
+                                                <rect key="frame" x="10" y="0.0" width="364" height="725"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9E-NT-E8B">
+                                                <rect key="frame" x="374" y="20" width="20" height="9.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="K9E-NT-E8B" secondAttribute="height" multiplier="67:31" id="cyh-8v-02p"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="X">
+                                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="clearTextButton:" destination="l5w-Bq-ZBh" eventType="touchUpInside" id="dQK-fN-pok"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="K9E-NT-E8B" firstAttribute="top" secondItem="nQx-Tz-SoT" secondAttribute="top" constant="20" id="CSs-9t-fxi"/>
+                                            <constraint firstItem="K9E-NT-E8B" firstAttribute="leading" secondItem="Mbr-jB-MaP" secondAttribute="trailing" id="Nje-rI-Zyx"/>
                                             <constraint firstItem="Mbr-jB-MaP" firstAttribute="leading" secondItem="nQx-Tz-SoT" secondAttribute="leading" constant="10" id="OTj-jy-Nhb"/>
-                                            <constraint firstAttribute="trailing" secondItem="Mbr-jB-MaP" secondAttribute="trailing" constant="10" id="QaR-Fv-G1L"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mbr-jB-MaP" secondAttribute="trailing" constant="20" id="QaR-Fv-G1L"/>
+                                            <constraint firstAttribute="trailing" secondItem="K9E-NT-E8B" secondAttribute="trailing" id="VnF-P6-KUU"/>
                                             <constraint firstAttribute="bottom" secondItem="Mbr-jB-MaP" secondAttribute="bottom" id="iuH-Wl-9yi"/>
                                             <constraint firstItem="Mbr-jB-MaP" firstAttribute="top" secondItem="nQx-Tz-SoT" secondAttribute="top" id="lAh-3P-1f0"/>
                                         </constraints>
@@ -476,6 +492,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
