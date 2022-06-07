@@ -9,27 +9,18 @@ import Foundation
 
 struct TextTranslationJSON: Decodable {
     
-    var data: TextTranslation
+    var data: TextTranslation = TextTranslation()
     
-    init() {
-        self.data = TextTranslation()
-    }
 }
 
 struct TextTranslation: Decodable {
     
-    var translations: [Translatedtext]
+    var translations: [Translatedtext] = [Translatedtext()]
     
-    init() {
-        self.translations = [Translatedtext()]
-    }
 }
 
 struct Translatedtext: Decodable {
     
-    var translatedText: String
+    var translatedText: String = ""
     
-    init() {
-        self.translatedText = ""
-    }
 }

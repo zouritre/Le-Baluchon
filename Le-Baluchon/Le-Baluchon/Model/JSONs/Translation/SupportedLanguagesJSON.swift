@@ -9,29 +9,19 @@ import Foundation
 
 struct SupportedLanguagesJSON: Decodable {
     
-    var data: Languages
+    var data: Languages = Languages()
     
-    init() {
-        self.data = Languages()
-    }
 }
 
 struct Languages: Decodable {
     
-    var languages: [Language]
+    var languages: [Language] = [Language()]
     
-    init() {
-        self.languages = [Language()]
-    }
 }
 
 struct Language: Decodable {
     
-    var language: String
-    var name: String
+    var language: String = ""
+    var name: String = ""
     
-    init() {
-        self.language = ""
-        self.name = ""
-    }
 }
