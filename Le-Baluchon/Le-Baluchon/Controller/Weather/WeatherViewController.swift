@@ -7,6 +7,22 @@
 
 import UIKit
 
+extension WeatherViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 6
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print(indexPath.item)
+        return WeatherDataCell.getCell(for: indexPath, in: collectionView)
+    }
+    
+    
+    
+}
 class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,7 +31,8 @@ class WeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var weatherDetails: UICollectionView!
+    
     /*
     // MARK: - Navigation
 

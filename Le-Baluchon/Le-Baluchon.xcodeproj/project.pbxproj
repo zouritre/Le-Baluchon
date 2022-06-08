@@ -37,6 +37,7 @@
 		E974441E2846ED36001D30C4 /* AutoDetectLanguageJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */; };
 		E97444202846F7BC001D30C4 /* TextTranslationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */; };
 		E97444232846FE93001D30C4 /* CurrencyConversionJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444222846FE93001D30C4 /* CurrencyConversionJSON.swift */; };
+		E98C387228502F900016E040 /* WeatherDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C387128502F900016E040 /* WeatherDataCell.swift */; };
 		E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */; };
 		E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */; };
 		E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E6283AAFFE00DD6374 /* ExchangeRateViewController.swift */; };
@@ -89,6 +90,7 @@
 		E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDetectLanguageJSON.swift; sourceTree = "<group>"; };
 		E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTranslationJSON.swift; sourceTree = "<group>"; };
 		E97444222846FE93001D30C4 /* CurrencyConversionJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConversionJSON.swift; sourceTree = "<group>"; };
+		E98C387128502F900016E040 /* WeatherDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataCell.swift; sourceTree = "<group>"; };
 		E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le-Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		E9471E2A284E708E00E56F17 /* Weather Service */ = {
 			isa = PBXGroup;
 			children = (
+				E98C387128502F900016E040 /* WeatherDataCell.swift */,
 				E9471E2B284E70A300E56F17 /* WeatherService.swift */,
 			);
 			path = "Weather Service";
@@ -547,6 +550,7 @@
 				E9471E39284E7E7100E56F17 /* WeatherDataJson.swift in Sources */,
 				E9471E35284E750A00E56F17 /* GeoDataJson.swift in Sources */,
 				E93638BC2848E9EB004D933F /* SupportedLanguagesJSON.swift in Sources */,
+				E98C387228502F900016E040 /* WeatherDataCell.swift in Sources */,
 				E9E811A0283BB41E006E19F0 /* FixerApi.swift in Sources */,
 				E97444202846F7BC001D30C4 /* TextTranslationJSON.swift in Sources */,
 				E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */,
