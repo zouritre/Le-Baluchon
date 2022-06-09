@@ -15,7 +15,7 @@ class WeatherService {
         
         NetworkService.shared.makeRequest(request: weatherApi.geoDataRequest(zip: String(zip), countryCode: countryCode), dataStructure: GeoDataJson()) {geoData, error in
             
-            guard let geoData = geoData as? GeoDataJson else {
+            guard let geoData = geoData else {
                 
                 completionHandler(nil, error)
                 
@@ -35,7 +35,7 @@ class WeatherService {
         
         NetworkService.shared.makeRequest(request: weatherApi.weatherDataRequest(latitude: String(lat), longitude: String(lon)), dataStructure: WeatherDataJson()) {weatherData, error in
             
-            guard let weatherData = weatherData as? WeatherDataJson else {
+            guard let weatherData = weatherData else {
                 
                 completionHandler(nil, error)
                 

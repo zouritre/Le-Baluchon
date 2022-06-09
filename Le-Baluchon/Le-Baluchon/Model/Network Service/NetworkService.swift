@@ -22,7 +22,7 @@ class NetworkService {
     
     /// Retrieve currencies symbol and name from API
     /// - Parameter completionHandler: Dictionnary containing each currency symbol as keys and names as values
-    func makeRequest<anyDecodable:Decodable>(request: URLRequest, dataStructure: anyDecodable , completionHandler: @escaping (_ data: Any?, _ error: NetworkRequestError?) -> Void) {
+    func makeRequest<anyDecodable:Decodable>(request: URLRequest, dataStructure: anyDecodable , completionHandler: @escaping (_ data: anyDecodable?, _ error: NetworkRequestError?) -> Void) {
         
         //Cancel current task if any
         task?.cancel()

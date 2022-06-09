@@ -13,7 +13,7 @@ class CurrencyService {
  
         NetworkService.shared.makeRequest(request: FixerApi.requestGetSymbol, dataStructure: CurrencySymbolJson()) { data, error in
             
-            guard let data = data as? CurrencySymbolJson, error == nil else {
+            guard let data = data, error == nil else {
                 
                 completionHandler(nil, error)
                 
@@ -30,7 +30,7 @@ class CurrencyService {
         
         NetworkService.shared.makeRequest(request: FixerApi.requestConvertCurrency, dataStructure: CurrencyConversionJSON()) { data, error in
             
-            guard let data = data as? CurrencyConversionJSON, error == nil else {
+            guard let data = data, error == nil else {
                 
                 completionHandler(nil, error)
                 

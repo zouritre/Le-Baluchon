@@ -15,7 +15,7 @@ class TranslationService {
         
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestAutoDetectLanguage, dataStructure: AutoDetectLanguageJSON()) {languageCode, error in
             
-            guard let languageCode = languageCode as? AutoDetectLanguageJSON else {
+            guard let languageCode = languageCode else {
                 
                 completionHandler(nil, error)
                 
@@ -34,7 +34,7 @@ class TranslationService {
 
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestTranslateText, dataStructure: TextTranslationJSON()) {translation, error in
             
-            guard let translation = translation as? TextTranslationJSON else {
+            guard let translation = translation else {
                 completionHandler(nil, error)
 
                 return
@@ -49,7 +49,7 @@ class TranslationService {
         
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestSupportedLanguages, dataStructure: SupportedLanguagesJSON()) { languages, error in
 
-                guard let languages = languages as? SupportedLanguagesJSON else {
+                guard let languages = languages else {
                     completionHandler(nil, error)
                     return
                 }
