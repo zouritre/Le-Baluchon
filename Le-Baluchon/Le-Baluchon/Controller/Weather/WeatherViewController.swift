@@ -7,21 +7,6 @@
 
 import UIKit
 
-extension WeatherViewController {
-    
-    func setGradientBackground() {
-        let colorTop =  UIColor(red: 0/255.0, green: 149.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
-                    
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-                
-        self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
-}
-
 extension WeatherViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -39,15 +24,11 @@ extension WeatherViewController: UICollectionViewDataSource {
 }
 class WeatherViewController: UIViewController {
 
-    var menuItemLyon = UIKeyCommand(title: "Lyon",
-                                                   action: #selector(selectCity(_:)),
-                                                   input: "L",
-                                                   modifierFlags: .command)
+    var weatherService = WeatherService()
     
-    var menuItemNY = UIKeyCommand(title: "New York",
-                                  action: #selector(selectCity(_:)),
-                                  input: "N",
-                                  modifierFlags: .command)
+    var menuItemLyon: UIKeyCommand?
+    
+    var menuItemNY: UIKeyCommand?
     
     var menuItems: [UIKeyCommand] = []
     
@@ -59,20 +40,24 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add designated cities as menu items
-        menuItems.append(menuItemLyon)
-        menuItems.append(menuItemNY)
-
-        // Create city button menu
-        let citySelectionMenu = UIMenu(title: "Sélectionnez une ville", options: .destructive, children: [menuItemNY, menuItemLyon])
+        createCitySelectionMenu()
         
-        citySelectionButton.menu = citySelectionMenu
+        getWeather()
+        
         
     }
     
     @IBOutlet weak var weatherDetails: UICollectionView!
     
     @IBOutlet weak var citySelectionButton: UIButton!
+    
+    @IBOutlet weak var temperature: UILabel!
+    
+    @IBOutlet weak var weatherDescription: UILabel!
+    
+    @IBOutlet weak var min_temp: UILabel!
+    
+    @IBOutlet weak var max_temp: UILabel!
     
     ///  Set selected menu item state to on and disable the one previously selected
     /// - Parameter sender: The selected menu item
@@ -96,6 +81,124 @@ class WeatherViewController: UIViewController {
         
         // Recreate the button menu with new items while preserving its configuration
         citySelectionButton.menu = citySelectionButton.menu?.replacingChildren(menuItems)
+        
+        getWeather()
+    }
+    
+    /// Create the menu for city selection
+    func createCitySelectionMenu() {
+        
+        menuItemLyon = UIKeyCommand(title: CityList.lyon.info().name,
+                                                       action: #selector(selectCity(_:)),
+                                                       input: "L",
+                                                       modifierFlags: .command)
+        
+        menuItemNY = UIKeyCommand(title: CityList.newYork.info().name,
+                                      action: #selector(selectCity(_:)),
+                                      input: "N",
+                                      modifierFlags: .command)
+        
+        // Add designated cities as menu items
+        menuItems.append(menuItemLyon!)
+        menuItems.append(menuItemNY!)
+
+        // Create city button menu
+        let citySelectionMenu = UIMenu(title: "Sélectionnez une ville", options: .displayInline, children: [menuItemLyon!, menuItemNY!])
+        
+        citySelectionButton.menu = citySelectionMenu
+    }
+    
+    func getWeather() {
+        
+        var zip = 0
+        
+        var countryCode = ""
+        
+        var weatherForFrance: Bool = false
+        
+        // Set zip and countryCode variables with selected city info
+        switch citySelectionButton.menu?.selectedElements[0].title {
+            
+        case CityList.lyon.info().name:
+            zip = CityList.lyon.info().zipcode
+            countryCode = CityList.lyon.info().countryCode
+            weatherForFrance = true
+            
+        case CityList.newYork.info().name:
+            zip = CityList.newYork.info().zipcode
+            countryCode = CityList.newYork.info().countryCode
+            weatherForFrance = false
+            
+        default:
+            alert(message: "Couldn't set selected city parameter to weather request")
+            return
+        }
+        
+        print("zip: \(zip) \nCode: \(countryCode)")
+        //Get coordinates of selected city then get its weather data
+        weatherService.getCoordinates(zip: zip, countryCode: countryCode) { [weak self] coords, error in
+            
+            guard let self = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                
+                guard error == nil else {
+                    
+                    self.alert(message: "Error when requesting city coordinates: \(error!.rawValue)")
+                    
+                    return
+                    
+                }
+                
+                guard let lat = coords?["lat"],  let lon = coords?["lon"] else {
+                    
+                    self.alert(message: "Error when retrieving coordinates: data was null")
+                    
+                    return
+                   
+                }
+                
+                self.weatherService.getWeather(lat: lat, lon: lon, forFrance: weatherForFrance)  { weather, error in
+                    
+                    DispatchQueue.main.async {
+                        
+                        guard error == nil else {
+                            
+                            self.alert(message: "Error when requesting weather: \(error!.rawValue)")
+                            
+                            return
+                            
+                        }
+                        
+                        guard let temp = weather?["temperature"] else {
+                            return
+                        }
+                        
+                        guard let description = weather?["description"] else {
+                            return
+                        }
+                        
+                        guard let temp_min = weather?["temp_min"] else {
+                            return
+                        }
+                        
+                        guard let temp_max = weather?["temp_max"] else {
+                            return
+                        }
+
+                        self.temperature.text = "\(temp)°"
+                        self.weatherDescription.text = "\(description)".capitalized
+                        self.min_temp.text = "Min. \(temp_min)°"
+                        self.max_temp.text = "Max. \(temp_max)°"
+
+                    }
+                }
+ 
+            }
+            
+        }
         
     }
     /*

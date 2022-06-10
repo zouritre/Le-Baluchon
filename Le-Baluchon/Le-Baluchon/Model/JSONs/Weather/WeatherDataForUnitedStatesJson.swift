@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherDataJson: Decodable {
+struct WeatherDataForUnitedStatesJson: Decodable {
     
     var coord = WeatherCoordData()
     

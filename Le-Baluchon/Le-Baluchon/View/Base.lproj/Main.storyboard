@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="standardAppearance"/>
                         <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="backgroundColor" systemColor="systemMintColor"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <connections>
@@ -172,7 +172,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ot-Nb-Hgh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="barTintColor" systemColor="systemMintColor"/>
                         <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
                     </tabBar>
                     <connections>
@@ -195,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="standardAppearance"/>
                         <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            <color key="backgroundColor" systemColor="systemMintColor"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <connections>
@@ -220,7 +221,7 @@
                             <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </navigationBarAppearance>
                         <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemMintColor"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <connections>
@@ -466,7 +467,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yWJ-r0-yST">
-                                <rect key="frame" x="0.0" y="108" width="414" height="114"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="94.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-z0-aXx">
                                         <rect key="frame" x="174.5" y="0.0" width="65" height="36"/>
@@ -476,26 +477,20 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-9j-hBv" userLabel="CityName">
-                                        <rect key="frame" x="174" y="36" width="66" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6Q-kp-R8c" userLabel="Temperature">
-                                        <rect key="frame" x="165" y="55.5" width="84.5" height="19.5"/>
+                                        <rect key="frame" x="165" y="36" width="84.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherDescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJB-Z1-0pS" userLabel="WeatherDescription">
-                                        <rect key="frame" x="141.5" y="75" width="131.5" height="19.5"/>
+                                        <rect key="frame" x="141.5" y="55.5" width="131.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-XK-4As">
-                                        <rect key="frame" x="136.5" y="94.5" width="141" height="19.5"/>
+                                        <rect key="frame" x="136.5" y="75" width="141" height="19.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min_temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ2-6L-YW3">
                                                 <rect key="frame" x="0.0" y="0.0" width="70.5" height="19.5"/>
@@ -514,7 +509,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drb-Qk-Pd1">
-                                <rect key="frame" x="20" y="252" width="374" height="551"/>
+                                <rect key="frame" x="20" y="232.5" width="374" height="570.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="554-E1-Gxt">
                                     <size key="itemSize" width="160" height="160"/>
@@ -961,6 +956,10 @@
                     <navigationItem key="navigationItem" title="Météo" id="cac-5L-gsI"/>
                     <connections>
                         <outlet property="citySelectionButton" destination="8Op-z0-aXx" id="aom-0z-KeE"/>
+                        <outlet property="max_temp" destination="asv-rD-fXf" id="904-ef-RPR"/>
+                        <outlet property="min_temp" destination="FQ2-6L-YW3" id="Sna-Ex-KiG"/>
+                        <outlet property="temperature" destination="f6Q-kp-R8c" id="BTR-js-gd9"/>
+                        <outlet property="weatherDescription" destination="DJB-Z1-0pS" id="Cwz-Te-9Os"/>
                         <outlet property="weatherDetails" destination="drb-Qk-Pd1" id="5aj-WS-158"/>
                     </connections>
                 </viewController>
@@ -1000,9 +999,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

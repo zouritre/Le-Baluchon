@@ -67,9 +67,16 @@ class FakeResponse {
         return try! Data(contentsOf: url)
     }
     
-    static var correctGetWeatherData: Data? {
+    static var NewYorkWeatherData: Data? {
     
-        let url = bundle.url(forResource: "WeatherData", withExtension: "json")!
+        let url = bundle.url(forResource: "NewYorkWeatherData", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
+    
+    static var FranceWeatherData: Data? {
+    
+        let url = bundle.url(forResource: "FranceWeatherData", withExtension: "json")!
         
         return try! Data(contentsOf: url)
     }

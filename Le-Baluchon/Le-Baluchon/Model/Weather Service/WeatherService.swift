@@ -13,7 +13,9 @@ class WeatherService {
     
     func getCoordinates(zip: Int, countryCode: String, completionHandler: @escaping ([String:Float]?, NetworkRequestError?) -> Void) {
         
-        NetworkService.shared.makeRequest(request: weatherApi.geoDataRequest(zip: String(zip), countryCode: countryCode), dataStructure: GeoDataJson()) {geoData, error in
+        let request = weatherApi.geoDataRequest(zip: String(zip), countryCode: countryCode)
+        
+        NetworkService.shared.makeRequest(request:  request, dataStructure: GeoDataJson()) {geoData, error in
             
             guard let geoData = geoData else {
                 
@@ -31,34 +33,69 @@ class WeatherService {
         }
     }
     
-    func getWeather(lat: Float, lon: Float, completionHandler: @escaping ([String:Any]?, NetworkRequestError?) -> Void) {
+    func getWeather(lat: Float, lon: Float, forFrance: Bool, completionHandler: @escaping ([String:Any]?, NetworkRequestError?) -> Void) {
         
-        NetworkService.shared.makeRequest(request: weatherApi.weatherDataRequest(latitude: String(lat), longitude: String(lon)), dataStructure: WeatherDataJson()) {weatherData, error in
+        let request = weatherApi.weatherDataRequest(latitude: String(lat), longitude: String(lon))
+        
+        if forFrance {
             
-            guard let weatherData = weatherData else {
+            NetworkService.shared.makeRequest(request: request, dataStructure: WeatherDataForFranceJson()) {weatherData, error in
                 
-                completionHandler(nil, error)
+                guard let weatherData = weatherData else {
+                    
+                    completionHandler(nil, error)
+                    
+                    return
+                }
                 
-                return
+                var weather: [String:Any] = [:]
+                
+                weather["temperature"] = weatherData.main.temp
+                weather["description"] = weatherData.weather[0].description
+                weather["temp_min"] = weatherData.main.temp_min
+                weather["temp_max"] = weatherData.main.temp_max
+                weather["feels_like"] = weatherData.main.feels_like
+                weather["pressure"] = weatherData.main.pressure
+                weather["humidity"] = weatherData.main.humidity
+                weather["wind_direction"] = weatherData.wind.deg
+                weather["wind_speed"] = weatherData.wind.speed
+                weather["visibility"] = weatherData.visibility
+                weather["sunrise"] = weatherData.sys.sunrise
+                weather["sunset"] = weatherData.sys.sunset
+                
+                completionHandler(weather, nil)
+                
             }
+        }
+        else {
             
-            var weather: [String:Any] = [:]
-            
-            weather["temperature"] = weatherData.main.temp
-            weather["description"] = weatherData.weather[0].description
-            weather["temp_min"] = weatherData.main.temp_min
-            weather["temp_max"] = weatherData.main.temp_max
-            weather["feels_like"] = weatherData.main.feels_like
-            weather["pressure"] = weatherData.main.pressure
-            weather["humidity"] = weatherData.main.humidity
-            weather["wind_direction"] = weatherData.wind.deg
-            weather["wind_speed"] = weatherData.wind.speed
-            weather["visibility"] = weatherData.visibility
-            weather["sunrise"] = weatherData.sys.sunrise
-            weather["sunset"] = weatherData.sys.sunset
-            
-            completionHandler(weather, nil)
-            
+            NetworkService.shared.makeRequest(request: request, dataStructure: WeatherDataForUnitedStatesJson()) {weatherData, error in
+                
+                guard let weatherData = weatherData else {
+                    
+                    completionHandler(nil, error)
+                    
+                    return
+                }
+                
+                var weather: [String:Any] = [:]
+                
+                weather["temperature"] = weatherData.main.temp
+                weather["description"] = weatherData.weather[0].description
+                weather["temp_min"] = weatherData.main.temp_min
+                weather["temp_max"] = weatherData.main.temp_max
+                weather["feels_like"] = weatherData.main.feels_like
+                weather["pressure"] = weatherData.main.pressure
+                weather["humidity"] = weatherData.main.humidity
+                weather["wind_direction"] = weatherData.wind.deg
+                weather["wind_speed"] = weatherData.wind.speed
+                weather["visibility"] = weatherData.visibility
+                weather["sunrise"] = weatherData.sys.sunrise
+                weather["sunset"] = weatherData.sys.sunset
+                
+                completionHandler(weather, nil)
+                
+            }
         }
     }
 }

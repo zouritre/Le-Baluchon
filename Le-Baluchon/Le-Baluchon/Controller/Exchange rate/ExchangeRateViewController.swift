@@ -72,6 +72,11 @@ class ExchangeRateViewController: UIViewController {
     
     @IBOutlet weak var convertedCurrencyTextLoading: UIActivityIndicatorView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        setGradientBackground()
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

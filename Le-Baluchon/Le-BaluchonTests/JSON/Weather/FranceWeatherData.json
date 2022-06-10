@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": 4.85,
+        "lat": 45.748
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "ciel dégagé",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 13.47,
+        "feels_like": 12.8,
+        "temp_min": 10.75,
+        "temp_max": 14.45,
+        "pressure": 1023,
+        "humidity": 74
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.57,
+        "deg": 20
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1654819364,
+    "sys": {
+        "type": 1,
+        "id": 6505,
+        "country": "FR",
+        "sunrise": 1654833059,
+        "sunset": 1654889356
+    },
+    "timezone": 7200,
+    "id": 2996944,
+    "name": "Lyon",
+    "cod": 200
+}
