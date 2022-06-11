@@ -11,7 +11,6 @@
 		E93638BA2848E950004D933F /* GetSupportedLanguagesCode.json in Resources */ = {isa = PBXBuildFile; fileRef = E93638B92848E950004D933F /* GetSupportedLanguagesCode.json */; };
 		E93638BC2848E9EB004D933F /* SupportedLanguagesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93638BB2848E9EB004D933F /* SupportedLanguagesJSON.swift */; };
 		E93638C128491194004D933F /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93638C028491194004D933F /* LanguageSelectionViewController.swift */; };
-		E93638C3284914FE004D933F /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93638C2284914FE004D933F /* TranslationViewController.swift */; };
 		E93DC5A7285285E100A49988 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DC5A6285285E100A49988 /* CurrencyService.swift */; };
 		E93DC5A92852862000A49988 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DC5A82852862000A49988 /* CityInfo.swift */; };
 		E93DC5AB28528CD100A49988 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93DC5AA28528CD100A49988 /* CityList.swift */; };
@@ -32,11 +31,12 @@
 		E95333D72842FEA200B8E915 /* CurrencyConversion.json in Resources */ = {isa = PBXBuildFile; fileRef = E95333D62842FEA200B8E915 /* CurrencyConversion.json */; };
 		E9542A97284035A200E86E9F /* CurrencySymbol.json in Resources */ = {isa = PBXBuildFile; fileRef = E9542A96284035A200E86E9F /* CurrencySymbol.json */; };
 		E9542A992840367400E86E9F /* FakeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9542A982840367400E86E9F /* FakeResponse.swift */; };
+		E95626B928554C960039BBB8 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95626B828554C960039BBB8 /* TranslationService.swift */; };
+		E95626BB28554CE20039BBB8 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95626BA28554CE20039BBB8 /* TranslationViewController.swift */; };
 		E974440C2846AB62001D30C4 /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974440B2846AB62001D30C4 /* GoogleTranslateAPI.swift */; };
 		E97444102846CBA9001D30C4 /* ConvertCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974440F2846CBA9001D30C4 /* ConvertCurrency.swift */; };
 		E97444142846D185001D30C4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444132846D185001D30C4 /* NetworkService.swift */; };
 		E97444172846D4E6001D30C4 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444162846D4E6001D30C4 /* NetworkRequestError.swift */; };
-		E974441B2846E285001D30C4 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441A2846E285001D30C4 /* TranslationService.swift */; };
 		E974441E2846ED36001D30C4 /* AutoDetectLanguageJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */; };
 		E97444202846F7BC001D30C4 /* TextTranslationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */; };
 		E97444232846FE93001D30C4 /* CurrencyConversionJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444222846FE93001D30C4 /* CurrencyConversionJSON.swift */; };
@@ -68,7 +68,6 @@
 		E93638B92848E950004D933F /* GetSupportedLanguagesCode.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetSupportedLanguagesCode.json; sourceTree = "<group>"; };
 		E93638BB2848E9EB004D933F /* SupportedLanguagesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesJSON.swift; sourceTree = "<group>"; };
 		E93638C028491194004D933F /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
-		E93638C2284914FE004D933F /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslationViewController.swift; path = "Le-Baluchon/View/TranslationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E93DC5A6285285E100A49988 /* CurrencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		E93DC5A82852862000A49988 /* CityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		E93DC5AA28528CD100A49988 /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
@@ -89,11 +88,12 @@
 		E95333D62842FEA200B8E915 /* CurrencyConversion.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CurrencyConversion.json; sourceTree = "<group>"; };
 		E9542A96284035A200E86E9F /* CurrencySymbol.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CurrencySymbol.json; sourceTree = "<group>"; };
 		E9542A982840367400E86E9F /* FakeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponse.swift; sourceTree = "<group>"; };
+		E95626B828554C960039BBB8 /* TranslationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		E95626BA28554CE20039BBB8 /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		E974440B2846AB62001D30C4 /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		E974440F2846CBA9001D30C4 /* ConvertCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrency.swift; sourceTree = "<group>"; };
 		E97444132846D185001D30C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E97444162846D4E6001D30C4 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
-		E974441A2846E285001D30C4 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslationService.swift; path = "Le-Baluchon/Model/API/GoogleTranslate/TranslationService.swift"; sourceTree = SOURCE_ROOT; };
 		E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDetectLanguageJSON.swift; sourceTree = "<group>"; };
 		E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTranslationJSON.swift; sourceTree = "<group>"; };
 		E97444222846FE93001D30C4 /* CurrencyConversionJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConversionJSON.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		E93638BD28491133004D933F /* Translation */ = {
 			isa = PBXGroup;
 			children = (
-				E93638C2284914FE004D933F /* TranslationViewController.swift */,
+				E95626BA28554CE20039BBB8 /* TranslationViewController.swift */,
 				E93638C028491194004D933F /* LanguageSelectionViewController.swift */,
 			);
 			path = Translation;
@@ -320,7 +320,7 @@
 		E97444152846D382001D30C4 /* Translation Service */ = {
 			isa = PBXGroup;
 			children = (
-				E974441A2846E285001D30C4 /* TranslationService.swift */,
+				E95626B828554C960039BBB8 /* TranslationService.swift */,
 			);
 			path = "Translation Service";
 			sourceTree = "<group>";
@@ -555,8 +555,6 @@
 				E97444102846CBA9001D30C4 /* ConvertCurrency.swift in Sources */,
 				E9D61DF2283C37E00058C9D2 /* CurrencySymbolJson.swift in Sources */,
 				E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */,
-				E974441B2846E285001D30C4 /* TranslationService.swift in Sources */,
-				E93638C3284914FE004D933F /* TranslationViewController.swift in Sources */,
 				E945DE31284381CF00E76393 /* ConversionQueryJSON.swift in Sources */,
 				E9471E25284E5A5400E56F17 /* OpenWeatherAPI.swift in Sources */,
 				E93DC5A92852862000A49988 /* CityInfo.swift in Sources */,
@@ -572,12 +570,14 @@
 				E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */,
 				E93638C128491194004D933F /* LanguageSelectionViewController.swift in Sources */,
 				E97444142846D185001D30C4 /* NetworkService.swift in Sources */,
+				E95626B928554C960039BBB8 /* TranslationService.swift in Sources */,
 				E93DC5B12852C47000A49988 /* ExtensionViewController.swift in Sources */,
 				E9471E2C284E70A300E56F17 /* WeatherService.swift in Sources */,
 				E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */,
 				E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */,
 				E97444232846FE93001D30C4 /* CurrencyConversionJSON.swift in Sources */,
 				E974441E2846ED36001D30C4 /* AutoDetectLanguageJSON.swift in Sources */,
+				E95626BB28554CE20039BBB8 /* TranslationViewController.swift in Sources */,
 				E97444172846D4E6001D30C4 /* NetworkRequestError.swift in Sources */,
 				E974440C2846AB62001D30C4 /* GoogleTranslateAPI.swift in Sources */,
 			);
