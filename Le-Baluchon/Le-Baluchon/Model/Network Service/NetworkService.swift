@@ -20,9 +20,9 @@ class NetworkService {
     /// URLSession to be used, in testings it will be a "fake" session
     var session = URLSession(configuration: .default)
     
-    /// Retrieve currencies symbol and name from API
-    /// - Parameter completionHandler: Dictionnary containing each currency symbol as keys and names as values
-    func makeRequest<anyDecodable:Decodable>(request: URLRequest, dataStructure: anyDecodable , completionHandler: @escaping (_ data: Any?, _ error: NetworkRequestError?) -> Void) {
+    /// Send a request via an API and process the response
+    /// - Parameter completionHandler: Results sent to the caller after processing the response
+    func makeRequest<anyDecodable:Decodable>(request: URLRequest, dataStructure: anyDecodable , completionHandler: @escaping (_ data: anyDecodable?, _ error: NetworkRequestError?) -> Void) {
         
         //Cancel current task if any
         task?.cancel()

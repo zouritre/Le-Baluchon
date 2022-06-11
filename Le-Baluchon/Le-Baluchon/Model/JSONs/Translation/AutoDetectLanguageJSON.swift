@@ -9,30 +9,18 @@ import Foundation
 
 struct AutoDetectLanguageJSON: Decodable {
     
-    var data: Detection
-    
-    init() {
-        self.data = Detection()
-    }
+    var data: Detection = Detection()
 }
 
 struct Detection: Decodable {
     
-    var detections: [[DetectedLanguage]]
+    var detections: [[DetectedLanguage]] = [[DetectedLanguage()]]
     
-    init() {
-        self.detections = [[DetectedLanguage()]]
-    }
 }
 
 struct DetectedLanguage: Decodable {
-    var confidence: Float
-    var isReliable: Bool
-    var language: String
+    var confidence: Float = 0
+    var isReliable: Bool = false
+    var language: String = ""
     
-    init() {
-        self.confidence = 0
-        self.isReliable = false
-        self.language = ""
-    }
 }

@@ -59,4 +59,18 @@ class FakeResponse {
         
         return try! Data(contentsOf: url)
     }
+    
+    static var correctGetCoordinatesData: Data? {
+    
+        let url = bundle.url(forResource: "GeoData", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
+    
+    static var correctWeatherData: Data? {
+    
+        let url = bundle.url(forResource: "WeatherData", withExtension: "json")!
+        
+        return try! Data(contentsOf: url)
+    }
 }
