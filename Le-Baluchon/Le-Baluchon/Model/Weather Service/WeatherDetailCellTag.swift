@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeatherDetailCell: Int {
+enum WeatherDetailCellTag: Int {
     
     case wind = 0
     case sun = 1

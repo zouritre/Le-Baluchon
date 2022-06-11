@@ -580,7 +580,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKI-Rd-xxM">
                                                             <rect key="frame" x="0.0" y="21" width="160" height="139"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-F1-Sau">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-F1-Sau">
                                                                     <rect key="frame" x="59" y="49" width="42" height="41"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-wd-Nb0">

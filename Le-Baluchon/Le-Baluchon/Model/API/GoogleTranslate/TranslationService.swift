@@ -9,6 +9,10 @@ import Foundation
 
 class TranslationService {
     
+    /// Detect the insert text language
+    /// - Parameters:
+    ///   - q: The text to be processed
+    ///   - completionHandler: Return the language code or an error
     static func detectLanguage(q: String, completionHandler: @escaping (_ languageCode: String?, _ error: NetworkRequestError?) -> Void) {
         
         GoogleTranslateAPI.q = q
@@ -26,6 +30,12 @@ class TranslationService {
         }
     }
     
+    /// Translate the provided text given a source language and a target language
+    /// - Parameters:
+    ///   - q: Text to be translated
+    ///   - source: Source language
+    ///   - target: Target language
+    ///   - completionHandler: Return the translation of the provided text or an error
     static func  translateText(q: String, source: String, target: String, completionHandler: @escaping (_ translation: String?, _ error: NetworkRequestError?) -> Void) {
         
         GoogleTranslateAPI.q = q
@@ -45,6 +55,8 @@ class TranslationService {
         
     }
     
+    /// Get a list of all supported languages to chose for translation
+    /// - Parameter completionHandler: Return a list of all available languages or an error
     static func getSupportedLanguages(completionHandler: @escaping (_ languageDatas: [Language]?, _ error: NetworkRequestError?) -> Void) {
         
         NetworkService.shared.makeRequest(request: GoogleTranslateAPI.requestSupportedLanguages, dataStructure: SupportedLanguagesJSON()) { languages, error in

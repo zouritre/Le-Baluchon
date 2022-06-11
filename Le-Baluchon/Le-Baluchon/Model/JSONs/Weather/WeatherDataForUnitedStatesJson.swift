@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherDataForUnitedStatesJson: Decodable {
+struct WeatherDataJson: Decodable {
     
     var coord = WeatherCoordData()
     
@@ -74,7 +74,7 @@ struct WeatherWindData: Decodable {
     
     var deg: Float = 0
     
-    var gust: Float = 0
+    var gust: Float?
     
 }
 

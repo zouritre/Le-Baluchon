@@ -79,11 +79,11 @@ class WeatherServiceTest: XCTestCase {
     }
     
     //If correct data and no error
-    func testWeatherShouldPostSuccessCallBackIfCorrectDataAndNoErrorForWeatherInFrance() {
+    func testGetWeatherShouldPostSuccessCallBackIfCorrectDataAndNoError() {
     // Given
         // Set mock data
         let response = FakeResponse.responseOK
-        let data = FakeResponse.FranceWeatherData!
+        let data = FakeResponse.correctWeatherData!
         let error: Error? = nil
         
         MockURLProtocol.requestHandler = { request in
@@ -93,60 +93,7 @@ class WeatherServiceTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        weatherService.getWeather(lat: 35, lon: 139, forFrance: true) { weatherData, error in
-            
-    // Then
-            XCTAssertEqual(weatherData!["temperature"] as? Float, 13.47)
-            XCTAssertEqual(weatherData!["description"] as? String, "ciel dégagé")
-            XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        //wait 50ms for closure to return
-        wait(for: [expectation], timeout: 0.05)
-    }
-    
-    //If data decoding failed
-    func testGetWeatherShouldPostFailedCallbackIfIncorrectDataForWeatherInFrance() {
-    // Given
-        // Set mock data
-        let response = FakeResponse.responseOK
-        let data = FakeResponse.incorrectData!
-        let error: Error? = nil
-        
-        MockURLProtocol.requestHandler = { request in
-            return (response, data, error)
-        }
-
-    // When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-
-        weatherService.getWeather(lat: 35, lon: 139, forFrance: true) { weatherData, error in
-            
-    // Then
-            XCTAssertNil(weatherData)
-            XCTAssertNotNil(error)
-            expectation.fulfill()
-        }
-        //wait 50ms for closure to return
-        wait(for: [expectation], timeout: 0.05)
-    }
-
-    //If correct data and no error
-    func testWeatherShouldPostSuccessCallBackIfCorrectDataAndNoErrorForWeatherInNewYork() {
-    // Given
-        // Set mock data
-        let response = FakeResponse.responseOK
-        let data = FakeResponse.NewYorkWeatherData!
-        let error: Error? = nil
-        
-        MockURLProtocol.requestHandler = { request in
-            return (response, data, error)
-        }
-
-    // When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-
-        weatherService.getWeather(lat: 35, lon: 139, forFrance: false) { weatherData, error in
+        weatherService.getWeather(lat: 35, lon: 139) { weatherData, error in
             
     // Then
             XCTAssertEqual(weatherData!["temperature"] as? Float, 26.39)
@@ -159,7 +106,7 @@ class WeatherServiceTest: XCTestCase {
     }
     
     //If data decoding failed
-    func testGetWeatherShouldPostFailedCallbackIfIncorrectDataForWeatherInNewYork() {
+    func testGetWeatherShouldPostFailedCallbackIfIncorrectData() {
     // Given
         // Set mock data
         let response = FakeResponse.responseOK
@@ -173,7 +120,7 @@ class WeatherServiceTest: XCTestCase {
     // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        weatherService.getWeather(lat: 35, lon: 139, forFrance: false) { weatherData, error in
+        weatherService.getWeather(lat: 35, lon: 139) { weatherData, error in
             
     // Then
             XCTAssertNil(weatherData)
