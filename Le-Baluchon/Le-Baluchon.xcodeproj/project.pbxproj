@@ -51,6 +51,8 @@
 		E99E49EF283AAFFF00DD6374 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99E49ED283AAFFF00DD6374 /* LaunchScreen.storyboard */; };
 		E99E4A16283ABC7B00DD6374 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */; };
 		E9D61DF2283C37E00058C9D2 /* CurrencySymbolJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */; };
+		E9DA844028540FCD00655138 /* WeatherDetailCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DA843F28540FCD00655138 /* WeatherDetailCellContent.swift */; };
+		E9DA84422854125400655138 /* WeatherDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DA84412854125400655138 /* WeatherDetailCell.swift */; };
 		E9E811A0283BB41E006E19F0 /* FixerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8119F283BB41E006E19F0 /* FixerApi.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,8 @@
 		E99E49F5283AAFFF00DD6374 /* Le-BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le-BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E4A15283ABC7B00DD6374 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = "Le-Baluchon/Controller/Weather/WeatherViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E9D61DF1283C37DF0058C9D2 /* CurrencySymbolJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolJson.swift; sourceTree = "<group>"; };
+		E9DA843F28540FCD00655138 /* WeatherDetailCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCellContent.swift; sourceTree = "<group>"; };
+		E9DA84412854125400655138 /* WeatherDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCell.swift; sourceTree = "<group>"; };
 		E9E8119F283BB41E006E19F0 /* FixerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +232,8 @@
 				E9471E2B284E70A300E56F17 /* WeatherService.swift */,
 				E93DC5A82852862000A49988 /* CityInfo.swift */,
 				E93DC5AA28528CD100A49988 /* CityList.swift */,
+				E9DA843F28540FCD00655138 /* WeatherDetailCellContent.swift */,
+				E9DA84412854125400655138 /* WeatherDetailCell.swift */,
 			);
 			path = "Weather Service";
 			sourceTree = "<group>";
@@ -566,6 +572,8 @@
 				E9471E25284E5A5400E56F17 /* OpenWeatherAPI.swift in Sources */,
 				E93DC5A92852862000A49988 /* CityInfo.swift in Sources */,
 				E9471E39284E7E7100E56F17 /* WeatherDataForUnitedStatesJson.swift in Sources */,
+				E9DA844028540FCD00655138 /* WeatherDetailCellContent.swift in Sources */,
+				E9DA84422854125400655138 /* WeatherDetailCell.swift in Sources */,
 				E9471E35284E750A00E56F17 /* GeoDataJson.swift in Sources */,
 				E93638BC2848E9EB004D933F /* SupportedLanguagesJSON.swift in Sources */,
 				E93DC5A7285285E100A49988 /* CurrencyService.swift in Sources */,

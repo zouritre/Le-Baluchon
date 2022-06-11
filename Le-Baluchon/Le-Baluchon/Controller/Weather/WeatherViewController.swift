@@ -8,6 +8,7 @@
 import UIKit
 
 extension WeatherViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return 6
@@ -16,11 +17,15 @@ extension WeatherViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        return WeatherDataCell.getCell(for: indexPath, in: collectionView)
+        let weatherCell = WeatherDataCell.getCell(for: indexPath, in: collectionView)
+        
+//        DispatchQueue.main.async {
+            self.setWeatherCellData(for: weatherCell)
+//        }
+        
+        return weatherCell
+        
     }
-    
-    
-    
 }
 class WeatherViewController: UIViewController {
 
@@ -31,6 +36,8 @@ class WeatherViewController: UIViewController {
     var menuItemNY: UIKeyCommand?
     
     var menuItems: [UIKeyCommand] = []
+    
+    var weatherDetailValues: [String:String] = [:]
     
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground()
@@ -108,6 +115,81 @@ class WeatherViewController: UIViewController {
         citySelectionButton.menu = citySelectionMenu
     }
     
+    func setWeatherCellData(for weatherCell: UICollectionViewCell) {
+        
+        switch weatherCell.tag {
+            
+        case WeatherDetailCell.wind.rawValue:
+
+            guard let windSpeed = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.windSpeed.rawValue) as? UILabel else {
+                print("Couldn't set windSpeed")
+                return
+            }
+
+            guard let windDrection = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.windDirection.rawValue) as? UILabel else {
+                print("Couldn't set windDrection")
+                return
+            }
+
+            windSpeed.text = self.weatherDetailValues["wind_speed"]
+            windDrection.text = self.weatherDetailValues["wind_direction"]
+            
+        case WeatherDetailCell.feels_like.rawValue:
+            
+            guard let feels_like = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.feels_like.rawValue) as? UILabel else {
+                print("Couldn't set feels_like")
+                return
+            }
+            
+            feels_like.text = self.weatherDetailValues["feels_like"]
+            
+        case WeatherDetailCell.pressure.rawValue:
+            
+            guard let pressure = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.pressure.rawValue) as? UILabel else {
+                print("Couldn't set pressure")
+                return
+            }
+            
+            pressure.text = self.weatherDetailValues["pressure"]
+            
+        case WeatherDetailCell.visibility.rawValue:
+            
+            guard let visibility = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.visibility.rawValue) as? UILabel else {
+                print("Couldn't set visibility")
+                return
+            }
+            
+            visibility.text = self.weatherDetailValues["visibility"]
+            
+        case WeatherDetailCell.humidity.rawValue:
+            
+            guard let humidity = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.humidity.rawValue) as? UILabel else {
+                print("Couldn't set humidity")
+                return
+            }
+            
+            humidity.text = self.weatherDetailValues["humidity"]
+            
+        case WeatherDetailCell.sun.rawValue:
+            
+            guard let sunrise = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.sunrise.rawValue) as? UILabel else {
+                print("Couldn't set sunrise")
+                return
+            }
+            
+            guard let sunset = weatherCell.contentView.viewWithTag(WeatherDetailCellContent.sunset.rawValue) as? UILabel else {
+                print("Couldn't set sunset")
+                return
+            }
+            
+            sunrise.text = self.weatherDetailValues["sunrise"]
+            sunset.text = self.weatherDetailValues["sunset"]
+            
+        default: return
+            
+        }
+    }
+    
     func getWeather() {
         
         var zip = 0
@@ -173,7 +255,7 @@ class WeatherViewController: UIViewController {
                         }
                         
                         guard let temp = weather?["temperature"] else {
-                            return
+                            return 
                         }
                         
                         guard let description = weather?["description"] else {
@@ -187,12 +269,76 @@ class WeatherViewController: UIViewController {
                         guard let temp_max = weather?["temp_max"] else {
                             return
                         }
+                        
+                        guard let feels_like = weather?["feels_like"] as? Float else {
+                            return
+                        }
+                        
+                        guard let pressure = weather?["pressure"] as? Float else {
+                            return
+                        }
+                        
+                        guard let humidity = weather?["humidity"] as? Float else {
+                            return
+                        }
+                        
+                        guard let wind_direction = weather?["wind_direction"] as? Float else {
+                            return
+                        }
+                        
+                        guard let wind_speed = weather?["wind_speed"] as? Float else {
+                            return
+                        }
+                        
+                        guard let visibility = weather?["visibility"] as? Float else {
+                            return
+                        }
+                        
+                        guard let sunrise = weather?["sunrise"] as? Int else {
+                            return
+                        }
+                        
+                        guard let sunset = weather?["sunset"] as? Int else {
+                            return
+                        }
 
-                        self.temperature.text = "\(temp)°"
+                        print("feels_like: \(feels_like)")
+                        print("pressure: \(pressure)")
+                        print("humidity: \(humidity)")
+                        print("visibility: \(visibility)")
+                        print("sunrise: \(sunrise)")
+                        print("sunset: \(sunset)")
+                        print("wind_direction: \(wind_direction)")
+                        print("wind_speed: \(wind_speed)")
+
+                        //Set UILabels outlets values
+                        self.temperature.text = "\(temp)°C"
                         self.weatherDescription.text = "\(description)".capitalized
-                        self.min_temp.text = "Min. \(temp_min)°"
-                        self.max_temp.text = "Max. \(temp_max)°"
+                        self.min_temp.text = "Min. \(temp_min)°C"
+                        self.max_temp.text = "Max. \(temp_max)°C"
+                        
+                        //Set dictionnary values used by UICollectionViewDataSource protocol
+                        self.weatherDetailValues["feels_like"] = "\(feels_like) °C"
+                        self.weatherDetailValues["pressure"] = "\(pressure) hPa"
+                        self.weatherDetailValues["humidity"] = "\(humidity) %"
+                        self.weatherDetailValues["wind_direction"] = "\(wind_direction) °"
+                        self.weatherDetailValues["wind_speed"] = "\(wind_speed) km/h"
+                        self.weatherDetailValues["visibility"] = "\(visibility) m"
+                        
+                        let dateFormatter = DateFormatter()
 
+                        dateFormatter.dateFormat = "hh'H'mm"
+
+                        let sunriseTime = Date(timeIntervalSince1970: TimeInterval(sunrise))
+                        
+                        self.weatherDetailValues["sunrise"] = "Levé: \(dateFormatter.string(from: sunriseTime))"
+
+                        let sunsetTime = Date(timeIntervalSince1970: TimeInterval(sunset))
+
+                        self.weatherDetailValues["sunset"] = "Couché: \(dateFormatter.string(from: sunsetTime))"
+                        
+                        self.weatherDetails.reloadData()
+                        
                     }
                 }
  
