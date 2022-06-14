@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherService {
     
-    var weatherApi = OpenWeather()
+    private var weatherApi = OpenWeather()
     
     func getCoordinates(zip: Int, countryCode: String, completionHandler: @escaping ([String:Float]?, NetworkRequestError?) -> Void) {
         

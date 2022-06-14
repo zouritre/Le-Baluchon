@@ -21,5 +21,12 @@ extension UIViewController {
                 
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
+    
+    func alert(message: String) {
+        
+        let alertView = UIAlertController.init(title: message, message: "", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alertView, animated: true)
+    }
 
 }
