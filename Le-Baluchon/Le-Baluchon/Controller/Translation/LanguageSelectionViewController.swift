@@ -85,12 +85,12 @@ class LanguageSelectionViewController: UIViewController {
     //Send selected language to main view controller on dismissal of this controller
     @IBAction func sendSelectedLanguage(_ sender: UITapGestureRecognizer) {
         
-        if languages.count > 0 {
+        if self.languages.count > 0 {
             
-            let selectedLanguage = languages[languagePicker.selectedRow(inComponent: 0)]
-            let selectedLanguageCode = languageCodes[languagePicker.selectedRow(inComponent: 0)]
+            let selectedLanguage = self.languages[languagePicker.selectedRow(inComponent: 0)]
+            let selectedLanguageCode = self.languageCodes[languagePicker.selectedRow(inComponent: 0)]
             
-            guard let languageSelectionDelegate = languageSelectionDelegate else {
+            guard let languageSelectionDelegate = self.languageSelectionDelegate else {
                 return
             }
             

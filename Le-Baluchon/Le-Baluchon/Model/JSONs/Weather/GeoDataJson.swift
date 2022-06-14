@@ -9,22 +9,14 @@ import Foundation
 
 struct GeoDataJson: Decodable {
     
-    var zip: String
+    var zip = ""
     
-    var name: String
+    var name = ""
     
-    var lat: Float
+    var lat: Float = 0
     
-    var lon: Float
+    var lon: Float = 0
     
-    var country: String
-    
-    init() {
-        self.zip = ""
-        self.name = ""
-        self.lat = 0
-        self.lon = 0
-        self.country = ""
-    }
+    var country = ""
     
 }

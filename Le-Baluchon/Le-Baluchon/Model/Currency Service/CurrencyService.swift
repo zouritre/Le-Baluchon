@@ -34,7 +34,9 @@ class CurrencyService {
     ///   - completionHandler: Return the conversion amount or an error
     static func convertCurrencies(from: String, to: String, amount: String, completionHandler: @escaping (_ result: Float?, _ error: NetworkRequestError?) -> Void) {
         
-        FixerApi.convert = ConvertCurrency(from: from, to: to, amount: amount)
+        FixerApi.from = from
+        FixerApi.to = to
+        FixerApi.amount = amount
         
         NetworkService.shared.makeRequest(request: FixerApi.requestConvertCurrency, dataStructure: CurrencyConversionJSON()) { data, error in
             

@@ -20,8 +20,14 @@ struct FixerApi {
     /// Subdirectory for calls to convert currencies to another
     private static let convertCurrency = "/convert"
     
-    /// Structure holding the conversion data before requesting to the API
-    static var convert = ConvertCurrency(from: "", to: "", amount: "")
+    /// Currency to convert
+    static var from = ""
+    
+    /// Target currency for conversion
+    static var to = ""
+    
+    /// Amount of currency to convert
+    static var amount = ""
     
     /// Return the request  to be sent to the API to retrieve supported currency symbols and names
     static var requestGetSymbol: URLRequest {
@@ -34,7 +40,7 @@ struct FixerApi {
     
     /// Return the request  to be sent to the API  to get the conversion of one currency to another according to the data provided by the user
     static var requestConvertCurrency: URLRequest {
-        var request = URLRequest(url: URL(string: "\(root)\(convertCurrency)?to=\(convert.to)&from=\(convert.from)&amount=\(convert.amount)")!)
+        var request = URLRequest(url: URL(string: "\(root)\(convertCurrency)?to=\(to)&from=\(from)&amount=\(amount)")!)
         request.httpMethod = "GET"
         request.setValue(apikey, forHTTPHeaderField: "apikey")
         

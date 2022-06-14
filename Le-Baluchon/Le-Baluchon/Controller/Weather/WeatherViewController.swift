@@ -29,10 +29,6 @@ class WeatherViewController: UIViewController {
 
     var weatherService = WeatherService()
     
-    var menuItemLyon: UIKeyCommand?
-    
-    var menuItemNY: UIKeyCommand?
-    
     /// Array contaning the items of the city selection button menu
     var menuItems: [UIKeyCommand] = []
     
@@ -42,16 +38,17 @@ class WeatherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         //Set a gradient background
-        setGradientBackground()
+        self.setGradientBackground()
+        
         super.viewWillAppear(animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createCitySelectionMenu()
+        self.createCitySelectionMenu()
         
-        getWeather()
+        self.getWeather()
         
     }
     
@@ -72,7 +69,7 @@ class WeatherViewController: UIViewController {
     @objc func selectCity(_ sender: UIKeyCommand) {
         
         // Set the selected item state to on
-        menuItems.forEach{ item in
+        self.menuItems.forEach{ item in
             
             if item.title == sender.title {
                 // Set the selected item state to on
@@ -88,33 +85,33 @@ class WeatherViewController: UIViewController {
         }
         
         // Recreate the button menu with new items while preserving its configuration
-        citySelectionButton.menu = citySelectionButton.menu?.replacingChildren(menuItems)
+        self.citySelectionButton.menu = self.citySelectionButton.menu?.replacingChildren(menuItems)
         
         //Request the weather for the selected city
-        getWeather()
+        self.getWeather()
     }
     
     /// Create the menu for city selection button
     func createCitySelectionMenu() {
         
-        menuItemLyon = UIKeyCommand(title: CityList.lyon.info().name,
+        let menuItemLyon = UIKeyCommand(title: CityList.lyon.info().name,
                                                        action: #selector(selectCity(_:)),
                                                        input: "L",
                                                        modifierFlags: .command)
         
-        menuItemNY = UIKeyCommand(title: CityList.newYork.info().name,
+        let menuItemNY = UIKeyCommand(title: CityList.newYork.info().name,
                                       action: #selector(selectCity(_:)),
                                       input: "N",
                                       modifierFlags: .command)
         
         // Store menu items in an array
-        menuItems.append(menuItemLyon!)
-        menuItems.append(menuItemNY!)
+        self.menuItems.append(menuItemLyon)
+        self.menuItems.append(menuItemNY)
 
         // Create city button menu with the items previously created
-        let citySelectionMenu = UIMenu(title: "Sélectionnez une ville", options: .displayInline, children: [menuItemLyon!, menuItemNY!])
+        let citySelectionMenu = UIMenu(title: "Sélectionnez une ville", options: .displayInline, children: self.menuItems)
         
-        citySelectionButton.menu = citySelectionMenu
+        self.citySelectionButton.menu = citySelectionMenu
     }
     
     func getCell(for indexPath: IndexPath, in collectionView: UICollectionView) -> UICollectionViewCell {
@@ -226,7 +223,7 @@ class WeatherViewController: UIViewController {
         var countryCode = ""
         
         // Set zip and countryCode variables according to selected city
-        switch citySelectionButton.menu?.selectedElements[0].title {
+        switch self.citySelectionButton.menu?.selectedElements[0].title {
             
         case CityList.lyon.info().name:
             zip = CityList.lyon.info().zipcode
@@ -237,12 +234,12 @@ class WeatherViewController: UIViewController {
             countryCode = CityList.newYork.info().countryCode
             
         default:
-            alert(message: "Couldn't get selected city information before sending request")
+            self.alert(message: "Couldn't get selected city information before sending request")
             return
         }
         
         //Get coordinates of selected city then get its weather data
-        weatherService.getCoordinates(zip: zip, countryCode: countryCode) { [weak self] coords, error in
+        self.weatherService.getCoordinates(zip: zip, countryCode: countryCode) { [weak self] coords, error in
             
             guard let self = self else {
                 return

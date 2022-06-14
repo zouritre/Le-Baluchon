@@ -162,7 +162,7 @@ class TranslationViewController: UIViewController {
     
     var caracterCounter: Int {
         
-            guard let textCounter = toBeTranslated.text?.count else {
+        guard let textCounter = self.toBeTranslated.text?.count else {
                 return 0
             }
             
@@ -175,9 +175,9 @@ class TranslationViewController: UIViewController {
         didSet {
             
             //prevent source language name and target language name to be identical
-            if targetLanguageName == sourceLanguageName {
+            if self.targetLanguageName == self.sourceLanguageName {
                 
-                sourceLanguageName = oldValue
+                self.sourceLanguageName = oldValue
                 
             }
         }
@@ -187,9 +187,9 @@ class TranslationViewController: UIViewController {
         didSet {
             
             //prevent source language code and target language code to be identical
-            if sourceLanguageCode == targetLanguageCode {
+            if self.sourceLanguageCode == self.targetLanguageCode {
                 
-                sourceLanguageCode = oldValue
+                self.sourceLanguageCode = oldValue
                 
             }
         }
@@ -200,9 +200,9 @@ class TranslationViewController: UIViewController {
         didSet {
             
             //prevent source language name and target language name to be identical
-            if targetLanguageName == sourceLanguageName {
+            if self.targetLanguageName == self.sourceLanguageName {
                 
-                targetLanguageName = oldValue
+                self.targetLanguageName = oldValue
                 
             }
         }
@@ -213,19 +213,21 @@ class TranslationViewController: UIViewController {
         didSet {
             
             //prevent source language code and target language code to be identical
-            if targetLanguageCode == sourceLanguageCode {
+            if self.targetLanguageCode == self.sourceLanguageCode {
                 
-                targetLanguageCode = oldValue
+                self.targetLanguageCode = oldValue
                 
             }
             else {
-                targetLanguage.setTitle(targetLanguageName, for: .normal)
+                self.targetLanguage.setTitle(self.targetLanguageName, for: .normal)
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         setGradientBackground()
+        
         super.viewWillAppear(animated)
     }
     
@@ -233,7 +235,7 @@ class TranslationViewController: UIViewController {
         super.viewDidLoad()
 
         //Place the controller as delegate of UITextViewDelegate to retrieve text changes events
-        toBeTranslated.delegate = self
+        self.toBeTranslated.delegate = self
         
     }
     
@@ -255,17 +257,17 @@ class TranslationViewController: UIViewController {
         
         guard sender.isOn else {
             
-            sourceLanguage.setTitle(sourceLanguageName, for: .normal)
+            self.sourceLanguage.setTitle(self.sourceLanguageName, for: .normal)
             
-            translateTextAfter(timer: 0.0)
+            self.translateTextAfter(timer: 0.0)
             
             return
             
         }
         
-        sourceLanguage.setTitle("Auto", for: .normal)
+        self.sourceLanguage.setTitle("Auto", for: .normal)
         
-        translateTextAfter(timer: 0.0)
+        self.translateTextAfter(timer: 0.0)
             
     }
     
@@ -273,17 +275,17 @@ class TranslationViewController: UIViewController {
     /// - Parameter sender: UIButton
     @IBAction func clearTextButton(_ sender: Any) {
         
-        toBeTranslated.text = ""
-        translatedText.text = ""
+        self.toBeTranslated.text = ""
+        self.translatedText.text = ""
         
-        caracterCounterLabel.text = "\(self.caracterCounter)/\(self.maxCaracterAllowed)"    }
+        self.caracterCounterLabel.text = "\(self.caracterCounter)/\(self.maxCaracterAllowed)"    }
     
     /// Send a translation request on the source text field after a delay
     /// - Parameter timer: Number of seconds to wait before sending the request
     func translateTextAfter(timer: Double) {
         
         //Prevent execution if not text has been prvided
-        guard toBeTranslated.text.count > 0 else {
+        guard self.toBeTranslated.text.count > 0 else {
             return
         }
         

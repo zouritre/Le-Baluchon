@@ -36,16 +36,6 @@ extension ExchangeRateViewController: UIPickerViewDelegate{
     }
 }
 
-extension UIViewController {
-    
-    func alert(message: String) {
-        
-        let alertView = UIAlertController.init(title: message, message: "", preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "OK", style: .cancel))
-        present(alertView, animated: true)
-    }
-}
-
 class ExchangeRateViewController: UIViewController {
 
     /// PickerView of currency to convert
@@ -132,15 +122,17 @@ class ExchangeRateViewController: UIViewController {
     /// Hide the keyboard when tapping outside textfileds
     /// - Parameter sender: A tap gesture
     @IBAction func dissmissKeyboard(_ sender: UITapGestureRecognizer) {
-        amountToConvertTextField.resignFirstResponder()
+        
+        //Cancel the focus on the TextView
+        self.amountToConvertTextField.resignFirstResponder()
         
         //Get the conversion if any amount have been entered
-        guard let amount = amountToConvertTextField.text else {
+        guard let amount = self.amountToConvertTextField.text else {
             return
         }
         
         if amount.count > 0 {
-            getConversion()
+            self.getConversion()
         }
         else {
             return
@@ -150,25 +142,25 @@ class ExchangeRateViewController: UIViewController {
     /// Convert provided currency amount to the provided currency target and displays the result
     func getConversion() {
         
-        guard let picker1SelectedItemIndex = pickerView1?.selectedRow(inComponent: 0) else {
+        guard let picker1SelectedItemIndex = self.pickerView1?.selectedRow(inComponent: 0) else {
             print("Couldn't retrieve picker1 selected item")
             return
         }
-        convertFrom = currencySymbols[picker1SelectedItemIndex]
+        self.convertFrom = self.currencySymbols[picker1SelectedItemIndex]
 
         guard let picker2SelectedItemIndex = pickerView2?.selectedRow(inComponent: 0) else {
             print("Couldn't retrieve picker2 selected item")
             return
         }
-        convertTo = currencySymbols[picker2SelectedItemIndex]
+        self.convertTo = self.currencySymbols[picker2SelectedItemIndex]
 
-        guard let amount = amountToConvertTextField.text else {
+        guard let amount = self.amountToConvertTextField.text else {
             print("Couldn't retrieve textfield content for conversion amount")
             return
         }
         
         //Display the loading indicator when the provided currency amount is being converted
-        convertedCurrencyTextLoading.isHidden = false
+        self.convertedCurrencyTextLoading.isHidden = false
         
         CurrencyService.convertCurrencies(from: convertFrom, to: convertTo, amount: amount){ [weak self] result, error in
 
