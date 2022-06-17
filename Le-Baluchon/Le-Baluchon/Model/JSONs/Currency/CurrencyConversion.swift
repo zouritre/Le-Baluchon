@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct CurrencySymbolJson: Decodable {
-    var success: Bool = true
-    var symbols: [String:String] = [:]
-}
-
 struct CurrencyConversionJSON: Decodable {
     
     var success = true
