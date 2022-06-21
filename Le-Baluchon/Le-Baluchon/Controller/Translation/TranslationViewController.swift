@@ -251,6 +251,12 @@ class TranslationViewController: UIViewController {
     
     @IBOutlet weak var translatedText: UITextView!
     
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        
+        self.toBeTranslated.resignFirstResponder()
+        
+    }
     /// Set the source text language button title to "Auto" if "Auto-detection" is on otherwise set it to the selected language
     /// - Parameter sender: The switch of language auto-detection
     @IBAction func autoDetect(_ sender: UISwitch) {

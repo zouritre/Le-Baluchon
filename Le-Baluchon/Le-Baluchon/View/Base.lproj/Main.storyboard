@@ -333,6 +333,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="md6-Jc-cCB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="221-Ab-GgV" firstAttribute="top" secondItem="St1-23-BuO" secondAttribute="bottom" constant="10" id="0sA-p3-E8P"/>
                             <constraint firstItem="md6-Jc-cCB" firstAttribute="bottom" secondItem="221-Ab-GgV" secondAttribute="bottom" constant="10" id="9hk-xc-nKT"/>
@@ -358,6 +359,9 @@
                             <constraint firstItem="NcQ-dl-Pji" firstAttribute="top" relation="greaterThanOrEqual" secondItem="md6-Jc-cCB" secondAttribute="top" constant="20" id="ygh-h6-zc7"/>
                             <constraint firstItem="BLc-Py-f1I" firstAttribute="top" secondItem="Dgh-lf-B83" secondAttribute="bottom" constant="5" id="yl8-3i-qGq"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Tcl-9r-UJw" appends="YES" id="ATI-NQ-Wid"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="trad" id="VDV-Zh-pQw"/>
                     <connections>
@@ -370,6 +374,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZQ-lI-3ef" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Tcl-9r-UJw">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="l5w-Bq-ZBh" id="kAG-b6-GOr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-188" y="-552"/>
         </scene>
