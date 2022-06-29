@@ -34,11 +34,11 @@
 		E95626B928554C960039BBB8 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95626B828554C960039BBB8 /* TranslationService.swift */; };
 		E95626BB28554CE20039BBB8 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95626BA28554CE20039BBB8 /* TranslationViewController.swift */; };
 		E974440C2846AB62001D30C4 /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974440B2846AB62001D30C4 /* GoogleTranslateAPI.swift */; };
-		E97444102846CBA9001D30C4 /* ConvertCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974440F2846CBA9001D30C4 /* ConvertCurrency.swift */; };
 		E97444142846D185001D30C4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444132846D185001D30C4 /* NetworkService.swift */; };
 		E97444172846D4E6001D30C4 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97444162846D4E6001D30C4 /* NetworkRequestError.swift */; };
 		E974441E2846ED36001D30C4 /* AutoDetectLanguageJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */; };
 		E97444202846F7BC001D30C4 /* TextTranslationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */; };
+		E993A86F286C7B7F00E78961 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E993A86E286C7B7F00E78961 /* Constant.swift */; };
 		E99E49E3283AAFFE00DD6374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */; };
 		E99E49E5283AAFFE00DD6374 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */; };
 		E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E49E6283AAFFE00DD6374 /* ExchangeRateViewController.swift */; };
@@ -90,11 +90,11 @@
 		E95626B828554C960039BBB8 /* TranslationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		E95626BA28554CE20039BBB8 /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		E974440B2846AB62001D30C4 /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
-		E974440F2846CBA9001D30C4 /* ConvertCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrency.swift; sourceTree = "<group>"; };
 		E97444132846D185001D30C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E97444162846D4E6001D30C4 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
 		E974441D2846ED36001D30C4 /* AutoDetectLanguageJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDetectLanguageJSON.swift; sourceTree = "<group>"; };
 		E974441F2846F7BC001D30C4 /* TextTranslationJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTranslationJSON.swift; sourceTree = "<group>"; };
+		E993A86E286C7B7F00E78961 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E99E49DF283AAFFE00DD6374 /* Le-Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le-Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99E49E2283AAFFE00DD6374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E99E49E4283AAFFE00DD6374 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -293,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				E9E8119F283BB41E006E19F0 /* FixerApi.swift */,
-				E974440F2846CBA9001D30C4 /* ConvertCurrency.swift */,
 			);
 			path = FixerAPI;
 			sourceTree = "<group>";
@@ -409,6 +408,7 @@
 				E9471E26284E5A6800E56F17 /* OpenWeather */,
 				E974440E2846CB8B001D30C4 /* FixerAPI */,
 				E974440D2846B629001D30C4 /* GoogleTranslate */,
+				E993A86E286C7B7F00E78961 /* Constant.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -533,13 +533,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97444102846CBA9001D30C4 /* ConvertCurrency.swift in Sources */,
 				E9D61DF2283C37E00058C9D2 /* CurrencyConversion.swift in Sources */,
 				E99E49E7283AAFFE00DD6374 /* ExchangeRateViewController.swift in Sources */,
 				E9471E25284E5A5400E56F17 /* OpenWeatherAPI.swift in Sources */,
 				E93DC5A92852862000A49988 /* CityInfo.swift in Sources */,
 				E9471E39284E7E7100E56F17 /* WeatherDataJson.swift in Sources */,
 				E9DA844028540FCD00655138 /* WeatherDetailCellContent.swift in Sources */,
+				E993A86F286C7B7F00E78961 /* Constant.swift in Sources */,
 				E9DA84422854125400655138 /* WeatherDetailCellTag.swift in Sources */,
 				E9471E35284E750A00E56F17 /* GeoDataJson.swift in Sources */,
 				E92CBF6D285D3E450054CC51 /* CurrencySymbol.swift in Sources */,

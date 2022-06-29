@@ -9,9 +9,6 @@ import Foundation
 
 class OpenWeather {
     
-    /// API key
-    private var appid = "b54cb236eb31cdc227a2d15c826950ff"
-    
     /// Request output language
     private var lang = "fr"
     
@@ -34,7 +31,7 @@ class OpenWeather {
     /// - Returns: Request to be sent according to the provided coordinates
     func weatherDataRequest(latitude: String, longitude: String) -> URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootUrlString)\(weatherDataUrlString)?lat=\(latitude)&lon=\(longitude)&units=\(units)&lang=\(lang)&appid=\(appid)")!)
+        var request = URLRequest(url: URL(string: "\(rootUrlString)\(weatherDataUrlString)?lat=\(latitude)&lon=\(longitude)&units=\(units)&lang=\(lang)&appid=\(Constant.OpenWeatherMapAppId)")!)
         request.httpMethod = "GET"
         
         return request
@@ -47,7 +44,7 @@ class OpenWeather {
     /// - Returns: Request to be sent according to the provided postal data
     func geoDataRequest(zip: String, countryCode: String) -> URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootUrlString)\(geoDataURLString)?zip=\(zip),\(countryCode)&appid=\(appid)")!)
+        var request = URLRequest(url: URL(string: "\(rootUrlString)\(geoDataURLString)?zip=\(zip),\(countryCode)&appid=\(Constant.OpenWeatherMapAppId)")!)
         request.httpMethod = "GET"
         
         return request

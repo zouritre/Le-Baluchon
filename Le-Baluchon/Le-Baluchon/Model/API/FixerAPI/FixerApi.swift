@@ -12,8 +12,6 @@ struct FixerApi {
     //Url of the API provider
     private static let root = "https://api.apilayer.com/fixer"
     
-    static let apikey = "eQ7AZvkH1sZInoQJJXKH4tBbapC7zVBh"
-    
     /// Subdirectory for calls to retrieve supported currency symbols and names
     private static let currencySymbol = "/symbols"
     
@@ -33,7 +31,7 @@ struct FixerApi {
     static var requestGetSymbol: URLRequest {
         var request = URLRequest(url: URL(string: "\(FixerApi.root)\(FixerApi.currencySymbol)")!)
         request.httpMethod = "GET"
-        request.setValue(apikey, forHTTPHeaderField: "apikey")
+        request.setValue(Constant.FixerApiKey, forHTTPHeaderField: "apikey")
         
         return request
     }
@@ -42,7 +40,7 @@ struct FixerApi {
     static var requestConvertCurrency: URLRequest {
         var request = URLRequest(url: URL(string: "\(root)\(convertCurrency)?to=\(to)&from=\(from)&amount=\(amount)")!)
         request.httpMethod = "GET"
-        request.setValue(apikey, forHTTPHeaderField: "apikey")
+        request.setValue(Constant.FixerApiKey, forHTTPHeaderField: "apikey")
         
         return request
     }

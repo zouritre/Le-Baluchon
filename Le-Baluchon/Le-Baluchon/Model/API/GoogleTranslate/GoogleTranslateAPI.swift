@@ -18,8 +18,6 @@ struct GoogleTranslateAPI {
     /// Subdirectory of the API to retrieve supported languages for translation
     private static let rootLanguagesCode = "https://translation.googleapis.com/language/translate/v2/languages"
     
-    private static let apiKey = "AIzaSyCDMD5VoCRCWBR_ALrbmvnUZf8-QzNCyyY"
-    
     /// Translation format, either text or html
     private static let translationFormat = "text"
     
@@ -38,7 +36,7 @@ struct GoogleTranslateAPI {
     /// Return the request to be sent to the API to get the provided text translation according the the source and target language
     static var requestTranslateText: URLRequest {
         
-        let translateTextUrlString = "\(self.rootTranslate)?key=\(apiKey)&format=\(translationFormat)&q=\(q!)&target=\(target!)&source=\(source!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let translateTextUrlString = "\(self.rootTranslate)?key=\(Constant.GoogleranslationApiKey)&format=\(translationFormat)&q=\(q!)&target=\(target!)&source=\(source!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         var request = URLRequest(url: URL(string: translateTextUrlString)!)
         request.httpMethod = "POST"
@@ -49,7 +47,7 @@ struct GoogleTranslateAPI {
     /// Return the request to be sent to the API  to get the provided text source language implicitly
     static var requestAutoDetectLanguage: URLRequest {
         
-        let autoDetectLanguageUrlString = "\(rootAutoDetectLanguage)?key=\(apiKey)&q=\(q!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let autoDetectLanguageUrlString = "\(rootAutoDetectLanguage)?key=\(Constant.GoogleranslationApiKey)&q=\(q!)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         var request = URLRequest(url: URL(string: autoDetectLanguageUrlString)!)
         request.httpMethod = "POST"
@@ -60,7 +58,7 @@ struct GoogleTranslateAPI {
     //Return the request to be sent to the API to get the list of all supported languages for translation
     static var requestSupportedLanguages: URLRequest {
         
-        var request = URLRequest(url: URL(string: "\(rootLanguagesCode)?key=\(apiKey)&target=\(languageNamesTarget)")!)
+        var request = URLRequest(url: URL(string: "\(rootLanguagesCode)?key=\(Constant.GoogleranslationApiKey)&target=\(languageNamesTarget)")!)
         request.httpMethod = "GET"
         
         return request
